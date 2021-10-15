@@ -1,0 +1,16 @@
+C Sharp (programming language)
+From Wikipedia, the free encyclopedia
+Jump to navigationJump to search
+The correct title of this article is C# (programming language). The substitution of the # is due to technical restrictions.
+C#
+C Sharp wordmark.svg
+Paradigm        Multi-paradigm: structured, imperative, object-oriented, event-driven, task-driven, functional, generic, reflective, concurrent
+Family        C
+Designed by        Anders Hejlsberg (Microsoft)
+Developer        Mads Torgersen (Microsoft)
+First appeared        2000; 21 years ago[1]
+Stable release        
+9.0[2] / November 10, 2020; 11 months ago
+Typing discipline        Static, dynamic,[3] strong, safe, nominative, partially inferred
+Platform        Common Language Infrastructure
+License        
