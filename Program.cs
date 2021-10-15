@@ -1,4 +1,5 @@
 ﻿using System;
+using WordSearcher.View;
 
 namespace WordSearcher
 {
@@ -6,8 +7,8 @@ namespace WordSearcher
     {
         static void Main(string[] args)
         {
-            
-          MenuView();
+
+            MenuView.StartMenu();
 
 
         }
