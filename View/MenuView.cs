@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WordSearcher.Controller;
 using WordSearcher.Controller;
 using WordSearcher.Controllers;
 
 namespace WordSearcher.View
 {
-   public class MenuView
+    public class MenuView
     {
         public static bool keepGoing = true;
         public static void StartMenu()
         {
+            FileHandler.GetDataFromTexFile();
             while (keepGoing)
             {
                 Console.WriteLine("Welcome");
