@@ -10,7 +10,10 @@ namespace WordSearcher.Controller
     {
         public void GetDataFromTexFile()
         {
-            
+            string text = System.IO.File.ReadAllText(@"..\WordSearcher\Recourses\Readtest.txt");
+
+            System.Console.WriteLine("Contents of ReadTest.txt = {0}", text);
+                
 
         }
     }
