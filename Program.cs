@@ -9,8 +9,11 @@ namespace WordSearcher
         {
 
             MenuView.StartMenu();
+           
 
 
         }
+
+     
     }
 }

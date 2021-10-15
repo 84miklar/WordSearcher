@@ -8,7 +8,7 @@ namespace WordSearcher.Controller
 {
     class FileHandler
     {
-        public void GetDataFromTexFile()
+        public static void GetDataFromTexFile()
         {
             string text = System.IO.File.ReadAllText(@"..\WordSearcher\Recourses\Readtest.txt");
 

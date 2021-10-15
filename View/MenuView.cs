@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WordSearcher.Controller;
 
 namespace WordSearcher.View
 {
@@ -11,6 +12,7 @@ namespace WordSearcher.View
         public static void StartMenu()
         {
             Console.WriteLine("Welcome");
+            FileHandler.GetDataFromTexFile();
             //Alla menyval.
             //Man skickas direkt vidare till controller för input.
         }
