@@ -6,7 +6,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Controllers\Readtest.txt" />
+    <None Remove="Controllers\TestTextFile1 - Copy.txt" />
+    <None Remove="Controllers\TestTextFile1.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Controllers\TestTextFile1 - Copy.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="TestTextFile1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Recourses\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Controllers\Readtest.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
