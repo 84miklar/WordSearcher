@@ -4,98 +4,109 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WordSearcher.Model;
+using WordSearcher.View;
 
 namespace WordSearcher.Controllers
 {
     class NodeHandler
     {
-        private Node rootNode;
+        public Node rootNode { get; set; }
         private Node currentNode;
         private int letterInWord = 0;
         private int letterValue = 0;
+        private bool keepGoing = true;
 
         //Constructor
-        public NodeHandler(Node node)
+        public NodeHandler(Word word)
         {
-            SetRootNode(node);
-            SaveData(node);
+            SetRootNode(word);
+            
         }
         /// <summary>
         /// Sets node to rootNode if null and currentNode to rootNode
         /// </summary>
         /// <param name="node">The node to handle</param>
-        public void SetRootNode(Node node)
+        private void SetRootNode(Word word)
         {
             if(rootNode == null)
             {
-                rootNode = node;
+                rootNode = new Node(word);
+                Console.WriteLine("New root node set");
             }
+            else
+            {
             currentNode = rootNode;
+                SaveData(word);
+            }
         }
         /// <summary>
         /// Saves data in structure according to char value.
         /// </summary>
         /// <param name="node">The node to add to list</param>
-        public void SaveData(Node node)
+        public void SaveData(Word word)
         {
-            if(node.Word.WordValue == currentNode.Word.WordValue)
+            while (true)
             {
-                Console.WriteLine("This word is already in the list...");
-            }
-            //Compares is first letter in word is same as currentNode first letter. If so, checks the next letter.
-            if(node.Word.WordValue[letterInWord] == currentNode.Word.WordValue[letterInWord])
-            {
-                letterInWord++;
-                SaveData(node);
-            }
-            //Transforms the letter to an int value
-            else
-            {
-               letterValue = FindLetterValue(node.Word.WordValue[letterInWord]);
-            }
-            //compares if letter in word is BEFORE the letter in current node.
-            if(letterValue < FindLetterValue(currentNode.Word.WordValue[letterInWord]))
-            {
-                TrySetLeftNode(node);
-            }
-            //compares if letter in word is AFTER the letter in current node.
-            if (letterValue > FindLetterValue(currentNode.Word.WordValue[letterInWord]))
-            {
-                TrySetRightNode(node);
+                if (word.WordValue == currentNode.Word.WordValue)
+                {
+                    Console.WriteLine("This word is already in the list...");
+                    keepGoing = false;
+                }
+                //Compares is first letter in word is same as currentNode first letter. If so, checks the next letter.
+                if (word.WordValue[letterInWord] == currentNode.Word.WordValue[letterInWord])
+                {
+                    letterInWord++;
+                    SaveData(word);
+                }
+                //Transforms the letter to an int value
+                else
+                {
+                    letterValue = FindLetterValue(word.WordValue[letterInWord]);
+                }
+                //compares if letter in word is BEFORE the letter in current node.
+                if (letterValue < FindLetterValue(currentNode.Word.WordValue[letterInWord]))
+                {
+                    TrySetLeftNode(word);
+                }
+                //compares if letter in word is AFTER the letter in current node.
+                if (letterValue > FindLetterValue(currentNode.Word.WordValue[letterInWord]))
+                {
+                    TrySetRightNode(word);
+                } 
             }
         }
         /// <summary>
         /// Checks if right node is available, else sets it to the node.
         /// </summary>
-        /// <param name="node">The node to add to list</param>
-        private void TrySetRightNode(Node node)
+        /// <param name="word">The node to add to list</param>
+        private void TrySetRightNode(Word word)
         {
             if (currentNode.RightNode == null)
             {
-                currentNode.RightNode = node;
+                currentNode.SetRightNode(new Node(word));
             }
             //if left node is not null, set current node to the left node and do all checks again.
             else
             {
                 currentNode = currentNode.RightNode;
-                SaveData(node);
+                SaveData(word);
             }
         }
         /// <summary>
         /// Checks if left node is available, else sets it to the node.
         /// </summary>
-        /// <param name="node">The node to add to list</param>
-        private void TrySetLeftNode(Node node)
+        /// <param name="word">The node to add to list</param>
+        private void TrySetLeftNode(Word word)
         {
             if (currentNode.LeftNode == null)
             {
-                currentNode.LeftNode = node;
+                currentNode.SetLeftNode(new Node(word));
             }
             //if left node is not null, set current node to the left node and do all checks again.
             else
             {
                 currentNode = currentNode.LeftNode;
-                SaveData(node);
+                SaveData(word);
             }
         }
 

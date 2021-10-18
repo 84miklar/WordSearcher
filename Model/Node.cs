@@ -31,5 +31,10 @@ namespace WordSearcher.Model
         {
             return this.RightNode = newNode;
         }
+        public override string ToString()
+        {
+            var display = $"{Word} \nLeft node: {LeftNode?.Word?.WordValue} \nRight node: {RightNode?.Word?.WordValue}";
+            return display;
+        }
     }
 }
