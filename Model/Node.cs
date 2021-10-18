@@ -8,10 +8,28 @@ namespace WordSearcher.Model
 {
     class Node
     {
-        //Klass för node object?
-        public override string ToString()
+        public Word Word { get; set; }
+        public Node RightNode { get; set; }
+        public Node LeftNode { get; set; }
+        public Node(Word word)
         {
-            return ToString();
+            Word = word;
+        }
+        public Node GetLeftNode()
+        {
+            return this.LeftNode;
+        }
+        public Node GetRightNode()
+        {
+            return this.RightNode;
+        }
+        public Node SetLeftNode(Node newNode)
+        {
+            return this.LeftNode = newNode;
+        }
+        public Node SetRightNode(Node newNode)
+        {
+            return this.RightNode = newNode;
         }
     }
 }
