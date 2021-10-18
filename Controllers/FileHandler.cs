@@ -6,6 +6,7 @@ namespace WordSearcher.Controller
     {
         public static void GetDataFromTexFile()
         {
+            /*
             string fileName = "TestTextFile1.txt";
             string text = System.IO.File.ReadAllText(fileName);
             Model.Arrays.SetTestArray(MakeTextIntoArray(text));
@@ -14,6 +15,7 @@ namespace WordSearcher.Controller
             {
 
             }
+            */
 
             //fileName = "c#1000.txt";
             //text = System.IO.File.ReadAllText(fileName);

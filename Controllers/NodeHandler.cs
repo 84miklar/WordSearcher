@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WordSearcher.Model;
 using WordSearcher.View;
 
@@ -127,6 +122,11 @@ namespace WordSearcher.Controllers
             keepGoing = false;
         }
 
+        /// <summary>
+        /// Converts a char to its int value.
+        /// </summary>
+        /// <param name="letter">The letter to convert.</param>
+        /// <returns></returns>
         private int FindLetterValue(char letter)
         {
             return (int)letter;
@@ -136,43 +136,30 @@ namespace WordSearcher.Controllers
         {
 
         }
-        //public void OutputData(Node node)
-        //{
-        //    SetCurrentNodeToRootNode();
-        //    while (true)
-        //    {
-        //        if (currentNode != null)
-        //        {
-        //            Console.WriteLine(currentNode);
-        //            if (currentNode.LeftNode != null)
-        //            {
-        //                Console.WriteLine(currentNode.LeftNode);
-
-        //            }
-
-        //            if (currentNode.RightNode != null)
-        //            {
-        //                Console.WriteLine(currentNode.RightNode);
-        //            }
-        //            currentNode = currentNode.LeftNode;
-        //        }
-        //        break;
-        //    }
-        //}
-        private void DisplayNodes(Node node)
+        /// <summary>
+        /// Displays all nodes in the node tree, starting from the far left of the root.
+        /// </summary>
+        /// <param name="node"></param>
+        private void DisplayNodes(Node node) //Starts with the root node
         {
             if (node == null)
             {
                 return;
             }
-            DisplayNodes(node.LeftNode);
-            Console.WriteLine(node);
-            DisplayNodes(node.RightNode);
+            DisplayNodes(node.LeftNode); //Send the left node to this method until node has no left node.
+            Console.WriteLine(node);//Prints out node data. 
+            DisplayNodes(node.RightNode);//send right node to this method and repeats the same procedure with all left nodes. 
         }
+        /// <summary>
+        /// Displays all nodes in the node tree, starting from the far left of the root.
+        /// </summary>
         public void DisplayNodes()
         {
             DisplayNodes(rootNode);
         }
+        /// <summary>
+        /// Sets the current node to the root node for comparison.
+        /// </summary>
         private void SetCurrentNodeToRootNode()
             {
                 if (rootNode != null)
