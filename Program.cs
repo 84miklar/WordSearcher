@@ -10,6 +10,7 @@ namespace WordSearcher
     {
         static void Main(string[] args)
         {
+            MenuView.StartMenu();
             var aWord = new Word("hej", 20,30,40);
             NodeHandler nodehandler = new NodeHandler(aWord);
             var bWord = new Word("hoj", 20, 30, 40);
