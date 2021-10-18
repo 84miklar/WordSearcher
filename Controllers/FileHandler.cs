@@ -37,6 +37,19 @@ namespace WordSearcher.Controller
             //C:\Users\svanths\Source\Repos\84miklar\WordSearcher\Controllers\Readtest.txt
 
             System.Console.WriteLine("Contents of ReadTest.txt = {0}", text);
+            MakeTextIntoArray(text);
+
+        }
+        public static void MakeTextIntoArray(string text)
+        {
+            char[] separators = new char[] { ' ', '.', ',' };
+            string[] textArray = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            foreach(string word in textArray)
+            {
+                Console.WriteLine(word);
+            }
+
+
         }
     }
 }
