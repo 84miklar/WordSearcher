@@ -2,25 +2,38 @@ using System;
 
 namespace WordSearcher.Controller
 {
-    internal class FileHandler
+     class FileHandler
     {
         public static void GetDataFromTexFile()
         {
             string fileName = "TestTextFile1.txt";
             string text = System.IO.File.ReadAllText(fileName);
+            Model.Arrays.SetTestArray(MakeTextIntoArray(text));
+            //MakeTextIntoArray(text);
+            foreach (var item in collection)
+            {
 
-            System.Console.WriteLine("Contents of TestTextFile1.txt = {0}", text);
-            MakeTextIntoArray(text); // gånger 3
+            }
+
+            //fileName = "c#1000.txt";
+            //text = System.IO.File.ReadAllText(fileName);
+            //MakeTextIntoArray(text);
+
+            //fileName = "Computer programming1500.txt";
+            //text = System.IO.File.ReadAllText(fileName);
+            //MakeTextIntoArray(text);
+
+            //fileName = "javascript3000.txt";
+            //text = System.IO.File.ReadAllText(fileName);
+            //MakeTextIntoArray(text);
+
         }
 
-        public static void MakeTextIntoArray(string text)
+        public static string[] MakeTextIntoArray(string text)
         {
             char[] separators = new char[] { ' ', '.', ',' };
             string[] textArray = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            foreach (string word in textArray)
-            {
-                Console.WriteLine(word);
-            }
+            return textArray;
         }
     }
 }
