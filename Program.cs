@@ -15,6 +15,8 @@ namespace WordSearcher
             NodeHandler nodehandler = new NodeHandler(aWord);
             var bWord = new Word("hoj", 20, 30, 40);
             nodehandler.SaveData(bWord);
+            var cWord = new Word("bara", 20, 30, 40);
+            nodehandler.SaveData(cWord);
 
 
             //MenuView.StartMenu();
