@@ -23,7 +23,7 @@ namespace WordSearcher.Model
        
         public override string ToString()
         {
-            string display = $"word: {WordValue}\n" + $"Presence in text: \n" + $"One: {PresenceInTextOne} times\n" + $"Two: {PresenceInTextTwo} " + $"\n" +
+            string display = $"\n\nword: {WordValue}\n" + $"Presence in text: \n" + $"One: {PresenceInTextOne} times\n" + $"Two: {PresenceInTextTwo} times " + $"\n" +
                 $"Three: {PresenceInTextThree} times";
             return display;
         }
