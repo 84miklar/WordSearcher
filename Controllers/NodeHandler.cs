@@ -20,29 +20,30 @@ namespace WordSearcher.Controllers
         public NodeHandler(Word word)
         {
             SetRootNode(word);
-            
+
         }
         /// <summary>
         /// Sets node to rootNode if null and currentNode to rootNode
         /// </summary>
-        /// <param name="node">The node to handle</param>
+        /// <param name="word">The word to handle</param>
         private void SetRootNode(Word word)
         {
-            if(rootNode == null)
+            if (rootNode == null)
             {
                 rootNode = new Node(word);
+                currentNode = rootNode;
                 Console.WriteLine("New root node set");
             }
             else
             {
-            currentNode = rootNode;
+                currentNode = rootNode;
                 SaveData(word);
             }
         }
         /// <summary>
         /// Saves data in structure according to char value.
         /// </summary>
-        /// <param name="node">The node to add to list</param>
+        /// <param name="word">The word to add to list</param>
         public void SaveData(Word word)
         {
             while (true)
@@ -55,8 +56,11 @@ namespace WordSearcher.Controllers
                 //Compares is first letter in word is same as currentNode first letter. If so, checks the next letter.
                 if (word.WordValue[letterInWord] == currentNode.Word.WordValue[letterInWord])
                 {
-                    letterInWord++;
-                    SaveData(word);
+                    if (letterInWord !> currentNode.Word.WordValue.Length)
+                    {
+                        letterInWord++;
+                        SaveData(word);
+                    }
                 }
                 //Transforms the letter to an int value
                 else
@@ -67,18 +71,22 @@ namespace WordSearcher.Controllers
                 if (letterValue < FindLetterValue(currentNode.Word.WordValue[letterInWord]))
                 {
                     TrySetLeftNode(word);
+                    keepGoing = false;
+                    break;
                 }
                 //compares if letter in word is AFTER the letter in current node.
                 if (letterValue > FindLetterValue(currentNode.Word.WordValue[letterInWord]))
                 {
                     TrySetRightNode(word);
-                } 
+                    keepGoing = false;
+                    break;
+                }
             }
         }
         /// <summary>
         /// Checks if right node is available, else sets it to the node.
         /// </summary>
-        /// <param name="word">The node to add to list</param>
+        /// <param name="word">The word to add to list</param>
         private void TrySetRightNode(Word word)
         {
             if (currentNode.RightNode == null)
@@ -91,11 +99,12 @@ namespace WordSearcher.Controllers
                 currentNode = currentNode.RightNode;
                 SaveData(word);
             }
+           
         }
         /// <summary>
         /// Checks if left node is available, else sets it to the node.
         /// </summary>
-        /// <param name="word">The node to add to list</param>
+        /// <param name="word">The word to add to list</param>
         private void TrySetLeftNode(Word word)
         {
             if (currentNode.LeftNode == null)
@@ -108,6 +117,7 @@ namespace WordSearcher.Controllers
                 currentNode = currentNode.LeftNode;
                 SaveData(word);
             }
+            keepGoing = false;
         }
 
         private int FindLetterValue(char letter)
