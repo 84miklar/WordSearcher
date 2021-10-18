@@ -33,4 +33,13 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="c#1000.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Computer programming1500.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
