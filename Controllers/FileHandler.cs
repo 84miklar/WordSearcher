@@ -1,4 +1,5 @@
 using System;
+using WordSearcher.Model;
 
 namespace WordSearcher.Controller
 {
@@ -8,12 +9,14 @@ namespace WordSearcher.Controller
         {
             string fileName = "TestTextFile1.txt";
             string text = System.IO.File.ReadAllText(fileName);
-            Model.Arrays.SetTestArray(MakeTextIntoArray(text));
-            //MakeTextIntoArray(text);
-            foreach (var item in collection)
-            {
+            Arrays.SetTestArray(MakeTextIntoArray(text));
 
-            }
+            
+                  
+            
+            MakeTextIntoArray(text);
+            //MakeTextIntoArray(text);            
+
 
             //fileName = "c#1000.txt";
             //text = System.IO.File.ReadAllText(fileName);
