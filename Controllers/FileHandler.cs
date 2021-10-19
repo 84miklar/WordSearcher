@@ -11,32 +11,18 @@ namespace WordSearcher.Controller
         public static void GetDataFromTexFile()
         {
             
-            string fileName = "TestTextFile1.txt";
+            string fileName = "c#1000.txt";
             string text = System.IO.File.ReadAllText(fileName);
             var text1 = new Arrays(MakeTextIntoArray(text));
 
-            foreach (var item in text1)
-            {
 
-            }
+            fileName = "Computer programming1500.txt";
+            text = System.IO.File.ReadAllText(fileName);
+            var text2 = new Arrays(MakeTextIntoArray(text));
 
-
-
-            //MakeTextIntoArray(text);            
-
-            //}
-
-            //fileName = "c#1000.txt";
-            //text = System.IO.File.ReadAllText(fileName);
-            //MakeTextIntoArray(text);
-
-            //fileName = "Computer programming1500.txt";
-            //text = System.IO.File.ReadAllText(fileName);
-            //MakeTextIntoArray(text);
-
-            //fileName = "javascript3000.txt";
-            //text = System.IO.File.ReadAllText(fileName);
-            //MakeTextIntoArray(text);
+            fileName = "javascript3000.txt";
+            text = System.IO.File.ReadAllText(fileName);
+            var text3 = new Arrays(MakeTextIntoArray(text));
 
         }
 
