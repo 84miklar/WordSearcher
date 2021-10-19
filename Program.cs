@@ -10,15 +10,15 @@ namespace WordSearcher
     {
         static void Main(string[] args)
         {
-           // MenuView.StartMenu();
-            NodeHandler nodehandler = new NodeHandler(new Word("hej", 20, 30, 40));
-            nodehandler.SaveData(new Word("hoj", 20, 30, 40));
-            nodehandler.SaveData(new Word("bara", 20, 30, 40));
-            nodehandler.SaveData(new Word("order", 20, 30, 40));
-            nodehandler.SaveData(new Word("order", 20, 30, 40));
-            nodehandler.SaveData(new Word("orber", 20, 30, 40));
-            nodehandler.SaveData(new Word("apa", 20, 30, 40));
-            nodehandler.DisplayNodes();
+            MenuView.StartMenu();
+            //NodeHandler nodehandler = new NodeHandler(new Word("hej", 20, 30, 40));
+            //nodehandler.SaveData(new Word("hoj", 20, 30, 40));
+            //nodehandler.SaveData(new Word("bara", 20, 30, 40));
+            //nodehandler.SaveData(new Word("order", 20, 30, 40));
+            //nodehandler.SaveData(new Word("order", 20, 30, 40));
+            //nodehandler.SaveData(new Word("orber", 20, 30, 40));
+            //nodehandler.SaveData(new Word("apa", 20, 30, 40));
+            //nodehandler.DisplayNodes();
         }
     }
 }

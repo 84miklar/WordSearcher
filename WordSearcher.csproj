@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Recourses\**" />
+    <EmbeddedResource Remove="Recourses\**" />
+    <None Remove="Recourses\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Controllers\Readtest.txt" />
     <None Remove="Controllers\TestTextFile1 - Copy.txt" />
     <None Remove="Controllers\TestTextFile1.txt" />
@@ -21,10 +27,6 @@
     <EmbeddedResource Include="TestTextFile1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Recourses\" />
   </ItemGroup>
 
   <ItemGroup>

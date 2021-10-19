@@ -28,12 +28,12 @@ namespace WordSearcher.Controllers
             if (rootNode == null)
             {
                 rootNode = new Node(word);
-                currentNode = rootNode;
+                SetCurrentNodeToRootNode();
                 Console.WriteLine("New root node set");
             }
             else
             {
-                currentNode = rootNode;
+                SetCurrentNodeToRootNode();
                 SaveData(word);
             }
         }

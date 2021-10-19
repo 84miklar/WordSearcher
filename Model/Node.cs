@@ -34,7 +34,7 @@ namespace WordSearcher.Model
         }
         public override string ToString()
         {
-            var display = $"{Word} \nLeft node: {LeftNode?.Word?.WordValue} \nRight node: {RightNode?.Word?.WordValue}";
+            var display = $"{Word} \nLeft node: \"{LeftNode?.Word?.WordValue.ToLower()}\" \nRight node: \"{RightNode?.Word?.WordValue.ToLower()}\"";
             return display;
         }
     }
