@@ -10,6 +10,7 @@ namespace WordSearcher.Controllers
         private Node currentNode;
         private int letterInWord = 0;
         private int letterValue = 0;
+        private int comparisonLetterValue = 0;
         private bool keepGoing = true;
 
         //Constructor
@@ -36,48 +37,56 @@ namespace WordSearcher.Controllers
                 SaveData(word);
             }
         }
+        /// <summary>
+        /// Method to call when a new word should be saved in node tree.
+        /// </summary>
+        /// <param name="word">The word to save in list.</param>
         public void SaveData(Word word)
         {
             SetCurrentNodeToRootNode();
             SaveNodeToTree(word);
         }
         /// <summary>
-        /// Saves data in structure according to char value.
+        /// Saves data in tree structure according to char value.
         /// </summary>
         /// <param name="word">The word to add to list</param>
         private void SaveNodeToTree(Word word)
         {
-            while (true)
+            keepGoing = true;
+            while (keepGoing)
             {
+                //If the word i already in the tree, it should not be saved again.
                 if (word.WordValue == currentNode.Word.WordValue)
                 {
-                    Console.WriteLine("This word is already in the list...");
+                    Console.WriteLine($"\"{word.WordValue.ToLower()}\" is already in the list...");
                     keepGoing = false;
                     break;
                 }
-                //Compares is first letter in word is same as currentNode first letter. If so, checks the next letter.
+                //Compares if first letter in word is same as currentNode first letter. If so, checks the next letter by recursion.
                 if (word.WordValue[letterInWord] == currentNode.Word.WordValue[letterInWord])
                 {
                     if (letterInWord < currentNode.Word.WordValue.Length)
                     {
                         letterInWord++;
                         SaveNodeToTree(word);
+                        break;
                     }
                 }
                 //Transforms the letter to an int value
                 else
                 {
                     letterValue = FindLetterValue(word.WordValue[letterInWord]);
+                    comparisonLetterValue = FindLetterValue(currentNode.Word.WordValue[letterInWord]);
                 }
                 //compares if letter in word is BEFORE the letter in current node.
-                if (letterValue < FindLetterValue(currentNode.Word.WordValue[letterInWord]))
+                if (letterValue < comparisonLetterValue)
                 {
                     TrySetLeftNode(word);
                     keepGoing = false;
                     break;
                 }
-                //compares if letter in word is AFTER the letter in current node.
-                if (letterValue > FindLetterValue(currentNode.Word.WordValue[letterInWord]))
+                //Letter in word should be AFTER the letter in current node.
+                else
                 {
                     TrySetRightNode(word);
                     keepGoing = false;
@@ -86,7 +95,7 @@ namespace WordSearcher.Controllers
             }
         }
         /// <summary>
-        /// Checks if right node is available, else sets it to the node.
+        /// Checks if right node is available, if so, sets it to the node.
         /// </summary>
         /// <param name="word">The word to add to list</param>
         private void TrySetRightNode(Word word)
@@ -95,7 +104,7 @@ namespace WordSearcher.Controllers
             {
                 currentNode.SetRightNode(new Node(word));
             }
-            //if left node is not null, set current node to the left node and do all checks again.
+            //if right node is not null, set current node to the right node and do all checks from SaveNodeToTree again.
             else
             {
                 currentNode = currentNode.RightNode;
@@ -104,7 +113,7 @@ namespace WordSearcher.Controllers
 
         }
         /// <summary>
-        /// Checks if left node is available, else sets it to the node.
+        /// Checks if left node is available, if so, sets it to the node.
         /// </summary>
         /// <param name="word">The word to add to list</param>
         private void TrySetLeftNode(Word word)
@@ -113,28 +122,22 @@ namespace WordSearcher.Controllers
             {
                 currentNode.SetLeftNode(new Node(word));
             }
-            //if left node is not null, set current node to the left node and do all checks again.
+            //if left node is not null, set current node to the left node and do all checks from SaveNodeToTree again.
             else
             {
                 currentNode = currentNode.LeftNode;
                 SaveNodeToTree(word);
             }
-            keepGoing = false;
         }
 
         /// <summary>
         /// Converts a char to its int value.
         /// </summary>
         /// <param name="letter">The letter to convert.</param>
-        /// <returns></returns>
+        /// <returns>A chars int value.</returns>
         private int FindLetterValue(char letter)
         {
             return (int)letter;
-        }
-
-        public void SearchData()
-        {
-
         }
         /// <summary>
         /// Displays all nodes in the node tree, starting from the far left of the root.
@@ -146,9 +149,9 @@ namespace WordSearcher.Controllers
             {
                 return;
             }
-            DisplayNodes(node.LeftNode); //Send the left node to this method until node has no left node.
+            DisplayNodes(node.LeftNode); //Send the left node to this method until node has no left node. Recursion.
             Console.WriteLine(node);//Prints out node data. 
-            DisplayNodes(node.RightNode);//send right node to this method and repeats the same procedure with all left nodes. 
+            DisplayNodes(node.RightNode);//send right node to this method and repeats the same procedure with all left nodes. Recursion.
         }
         /// <summary>
         /// Displays all nodes in the node tree, starting from the far left of the root.
