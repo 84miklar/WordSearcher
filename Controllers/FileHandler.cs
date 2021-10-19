@@ -5,20 +5,26 @@ namespace WordSearcher.Controller
 {
      class FileHandler
     {
+        /// <summary>
+        /// läser in 3 textfiler och sparar dem i model Arrays
+        /// </summary>
         public static void GetDataFromTexFile()
         {
-            /*
+            
             string fileName = "TestTextFile1.txt";
             string text = System.IO.File.ReadAllText(fileName);
-            Arrays.SetTestArray(MakeTextIntoArray(text));
+            var text1 = new Arrays(MakeTextIntoArray(text));
 
-            
-                  
-            
-            MakeTextIntoArray(text);
-            //MakeTextIntoArray(text);            
+            foreach (var item in text1)
+            {
 
             }
+
+
+
+            //MakeTextIntoArray(text);            
+
+            //}
 
             //fileName = "c#1000.txt";
             //text = System.IO.File.ReadAllText(fileName);
@@ -36,7 +42,7 @@ namespace WordSearcher.Controller
 
         public static string[] MakeTextIntoArray(string text)
         {
-            char[] separators = new char[] { ' ', '.', ',' };
+            char[] separators = new char[] { ' ', '.', ',', '[', ']', '(', ')', '"', '*' };
             string[] textArray = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             return textArray;
         }

@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace WordSearcher.Model
 {
-    public static class Arrays
+    public  class Arrays
     {
-        static string[] TestArray { get; set; }
+         public string[] TextArray { get; set; }
 
-
-        public static void SetTestArray(string[] testArray)
+        public Arrays(string [] textArray)
         {
-            TestArray = testArray;
-            
-        }
+            TextArray = textArray;
+        }        
 
-        public static string[] GetTestArray() => TestArray;
+        
        
     }
 }
