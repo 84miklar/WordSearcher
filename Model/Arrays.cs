@@ -17,7 +17,7 @@ namespace WordSearcher.Model
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public void FirstXWords(string[] text, int antalOrd)
+        public static void FirstXWords(string[] text, int antalOrd)
         {
             try
             {

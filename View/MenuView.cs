@@ -1,6 +1,7 @@
 ﻿using System;
 using WordSearcher.Controller;
 using WordSearcher.Controllers;
+using WordSearcher.Model;
 
 namespace WordSearcher.View
 {
@@ -12,6 +13,7 @@ namespace WordSearcher.View
             FileHandler.GetDataFromTexFile();
             while (keepGoing)
             {
+                
                 Console.WriteLine("Welcome");
                 Console.WriteLine("1. Get data from text files\n" +
                     "2. Search for a word\n" +

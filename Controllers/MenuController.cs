@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WordSearcher.Model;
 using WordSearcher.View;
 
 
@@ -24,7 +25,9 @@ namespace WordSearcher.Controller
                     
                     break;
                 case 4:
-                    
+                    string[] cars = { "Volvo", "BMW", "Ford", "Mazda", "Volvo", "BMW", "Ford", "Mazda", "Volvo", "BMW", "Ford", "Mazda" };
+                    Arrays.FirstXWords(cars,5);
+
                     break;
                 case 5:
                     MenuView.keepGoing = false;
