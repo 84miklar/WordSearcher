@@ -17,6 +17,7 @@ namespace WordSearcher.Controllers
             var searchedWord = Console.ReadLine();
             var newWord = new Word(searchedWord);
             AddWordToNodeList(newWord);
+            Console.WriteLine(newWord);
         }
 
         private static void AddWordToNodeList(Word word)

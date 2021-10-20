@@ -96,6 +96,7 @@ namespace WordSearcher.Controllers
                     break;
                 }
             }
+            letterInWord = 0;
         }
         /// <summary>
         /// Checks if right node is available, if so, sets it to the node.
@@ -161,23 +162,8 @@ namespace WordSearcher.Controllers
         /// </summary>
         public void DisplayNodes()
         {
-            DisplayNodes3();
+            DisplayNodes(RootNode);
         }
-        /// <summary>
-        /// Displays all nodes in the node tree, starting from the far left of the root.
-        /// </summary>
-        /// <param name="node"></param>
-        private void DisplayNodes3() //Starts with the root node
-        {
-            if (currentNode == null)
-            {
-                return;
-            }
-            DisplayNodes(currentNode.LeftNode); //Send the left node to this method until node has no left node. Recursion.
-            Console.WriteLine(currentNode);//Prints out node data. 
-            DisplayNodes(currentNode.RightNode);//send right node to this method and repeats the same procedure with all left nodes. Recursion.
-        }
-       
         /// <summary>
         /// Sets the current node to the root node for comparison.
         /// </summary>

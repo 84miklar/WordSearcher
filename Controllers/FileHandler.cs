@@ -14,12 +14,10 @@ namespace WordSearcher.Controller
             string text = System.IO.File.ReadAllText(fileName);
             var text1 = new Arrays(MakeTextIntoArray(text), fileName);
             AddTextArrayToList(text1);
-
             fileName = "Computer programming1500.txt";
             text = System.IO.File.ReadAllText(fileName);
             var text2 = new Arrays(MakeTextIntoArray(text), fileName);
             AddTextArrayToList(text2);
-
             fileName = "javascript3000.txt";
             text = System.IO.File.ReadAllText(fileName);
             var text3 = new Arrays(MakeTextIntoArray(text), fileName);
