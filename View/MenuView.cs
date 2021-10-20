@@ -19,7 +19,7 @@ namespace WordSearcher.View
                     "4. Exit");
                 var choice = ControlHelper.TryParse();
                 MenuController.StartMenu(choice);
-                if (choice != 5) ControlHelper.PressEnter();
+                if (choice != 4) ControlHelper.PressEnter();
             }
         }
         /// <summary>

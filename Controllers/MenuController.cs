@@ -25,13 +25,11 @@ namespace WordSearcher.Controller
                     
                     break;
                 case 4:
-                    
-                    break;
-                case 5:
                     MenuView.keepGoing = false;
                     break;
+                    
                 default:
-                    if (input > 5)
+                    if (input > 4)
                         MenuView.DefaultView();
                     break;
             }

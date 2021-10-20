@@ -15,6 +15,7 @@ namespace WordSearcher.Model
         public (string text, int amount) presenceInTextThree;
 
         public List<(string, int)> calculatedWords = new List<(string, int)>();
+        
         public Word(string word)
         {
             WordValue = word.ToLower();
@@ -25,14 +26,20 @@ namespace WordSearcher.Model
             }
             AddTuplesToList();
         }
-
+        /// <summary>
+        /// Adds all tuples in Word class to a list. 
+        /// </summary>
         private void AddTuplesToList()
         {
             calculatedWords.Add(this.presenceInTextOne);
             calculatedWords.Add(this.presenceInTextTwo);
             calculatedWords.Add(this.presenceInTextThree);
         }
-
+        /// <summary>
+        /// Calculates the presence of a word in an array of strings.
+        /// Sets the name and presence amount to a tuple.
+        /// </summary>
+        /// <param name="textArray">The array to check for words in</param>
         private void CalculatePresenceInText(Arrays textArray)
         {
             for (int i = 0; i < textArray.TextArray.Length; i++)
@@ -57,10 +64,13 @@ namespace WordSearcher.Model
                 }
             }
         }
-
+        /// <summary>
+        /// Puts together a string with info about words precense in a text, if filename is not null.
+        /// </summary>
+        /// <returns>A string with filename and amount of times a word is precense i a text.</returns>
         public string DisplayPrescenceInText()
         {
-            var sortedList = calculatedWords.OrderBy(x => x.Item2).ToList();
+            var sortedList = SortListOfCalculatedWords();
             var returnString = "";
             var builder = new StringBuilder();
             builder.Append(returnString);
@@ -73,6 +83,14 @@ namespace WordSearcher.Model
             }
 
             return returnString = builder.ToString();
+        }
+        /// <summary>
+        /// Sorts the list by how many times a word is precense in a text.
+        /// </summary>
+        /// <returns>A sorted list of tuples.</returns>
+        private List<(string, int)> SortListOfCalculatedWords()
+        {
+            return calculatedWords.OrderBy(x => x.Item2).ToList();
         }
 
         public override string ToString()
