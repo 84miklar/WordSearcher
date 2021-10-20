@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WordSearcher.Controllers;
 
 namespace WordSearcher.Model
 {
@@ -16,19 +17,19 @@ namespace WordSearcher.Model
         public Dictionary<string, int> dictionary = new Dictionary<string, int>();
         public Word(string word)
         {
-            WordValue = word.ToUpper();
+            WordValue = word.ToLower();
             foreach (var arr in Arrays.ArrayList)
             {
                 CalculatePresenceInText(arr);
             }
-            
         }
 
         public void CalculatePresenceInText(Arrays textArray)
         {
+            dictionary.Add(textArray.Name, presenceInTextThree);
             for (int i = 0; i < textArray.TextArray.Length; i++)
             {
-                if (textArray.TextArray[i] == WordValue)
+                if (textArray.TextArray[i].ToLower() == WordValue)
                 {
                     if (textArray.Name == "c#1000.txt")
                     {
@@ -42,15 +43,13 @@ namespace WordSearcher.Model
                     }
                     if (textArray.Name == "javascript3000.txt")
                     {
-                        presenceInTextThree++;
-                        dictionary.Add(textArray.Name, presenceInTextThree);
+                        dictionary[textArray.Name] = +1;
                     }
                 }
             }
         }
         public string DisplayPrescenceInText()
         {
-           
             var sortedDict = dictionary.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
             foreach (var item in dictionary)
             {

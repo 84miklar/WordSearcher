@@ -4,14 +4,14 @@ using WordSearcher.View;
 
 namespace WordSearcher.Controllers
 {
-    class NodeController
+   class NodeController
     {
-        public Node rootNode { get; set; }
-        private Node currentNode;
-        private int letterInWord = 0;
-        private int letterValue = 0;
-        private int comparisonLetterValue = 0;
-        private bool keepGoing = true;
+        public  Node RootNode { get; set; }
+        private  Node currentNode;
+        private  int letterInWord = 0;
+        private  int letterValue = 0;
+        private  int comparisonLetterValue = 0;
+        private  bool keepGoing = true;
 
         //Constructor
         public NodeController(Word word)
@@ -19,15 +19,18 @@ namespace WordSearcher.Controllers
             SetRootNode(word);
 
         }
+        public NodeController()
+        {
+        }
         /// <summary>
         /// Sets node to rootNode if null and currentNode to rootNode
         /// </summary>
         /// <param name="word">The word to handle</param>
-        private void SetRootNode(Word word)
+        public void SetRootNode(Word word)
         {
-            if (rootNode == null)
+            if (RootNode == null)
             {
-                rootNode = new Node(word);
+                RootNode = new Node(word);
                 SetCurrentNodeToRootNode();
                 Console.WriteLine("New root node set");
             }
@@ -158,16 +161,31 @@ namespace WordSearcher.Controllers
         /// </summary>
         public void DisplayNodes()
         {
-            DisplayNodes(rootNode);
+            DisplayNodes3();
         }
+        /// <summary>
+        /// Displays all nodes in the node tree, starting from the far left of the root.
+        /// </summary>
+        /// <param name="node"></param>
+        private void DisplayNodes3() //Starts with the root node
+        {
+            if (currentNode == null)
+            {
+                return;
+            }
+            DisplayNodes(currentNode.LeftNode); //Send the left node to this method until node has no left node. Recursion.
+            Console.WriteLine(currentNode);//Prints out node data. 
+            DisplayNodes(currentNode.RightNode);//send right node to this method and repeats the same procedure with all left nodes. Recursion.
+        }
+       
         /// <summary>
         /// Sets the current node to the root node for comparison.
         /// </summary>
         private void SetCurrentNodeToRootNode()
             {
-                if (rootNode != null)
+                if (RootNode != null)
                 {
-                    currentNode = rootNode;
+                    currentNode = RootNode;
                 }
             }
         }

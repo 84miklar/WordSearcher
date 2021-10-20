@@ -19,7 +19,7 @@ namespace WordSearcher.Controller
                     WordController.SearchWord();
                     break;
                 case 2:
-                    
+                    WordController.PrintWordsInTree();
                     break;
                 case 3:
                     
