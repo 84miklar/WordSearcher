@@ -8,13 +8,12 @@ namespace WordSearcher.Model
     {
          public string[] TextArray { get; set; }
         public string Name { get; set; }
-        public static List<Arrays> ArrayList { get; set; }
+        public static List<Arrays> ArrayList { get; set; } = new List<Arrays>();
 
         public Arrays(string[] textArray, string name)
         {
             TextArray = textArray;
             Name = name;
-            ArrayList = new List<Arrays>();
         }        
 
         /// <summary>
