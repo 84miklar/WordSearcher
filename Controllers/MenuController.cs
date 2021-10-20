@@ -24,10 +24,9 @@ namespace WordSearcher.Controller
                 case 3:
                     
                     break;
-                case 4:
-                   
+                case 4:                   
                         
-                    string[] cars = { "Volvo", "BMW", "Ford", "Mazda", "Volvo", "BMW", "Ford", "Mazda", "Volvo", "BMW", "Ford", "Mazda" };
+                    
                     Model.Arrays.FirstXWords(Model.Arrays.ArrayList, 10);
 
                     break;

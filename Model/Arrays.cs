@@ -19,19 +19,23 @@ namespace WordSearcher.Model
         /// <summary>
         ///  Användaren skall ha möjlighet att sortera orden i dokumenten i bokstavsordning och skriva ut de första x orden till konsolen.
         /// </summary>
-        /// <param name="text"></param>
+        /// <param name="listOfArray"></param>
         /// <returns></returns>
-        public static void FirstXWords(List<Arrays> text, int howManyWords)
+        public static void FirstXWords(List<Arrays> listOfArray, int howManyWords)
         {
 
-            foreach (var item in text)
+            foreach (var array in listOfArray)
             {
-                Console.WriteLine(item);
+                Console.WriteLine("--------------");
+                Console.WriteLine(array.Name + " top " + howManyWords + ":");
+                Console.WriteLine("--------------");
+                
+                foreach (var word in array.TextArray.Take(howManyWords))
+                {
+                    Console.WriteLine(word);
+                }
             }
-            for (int i = 0; i < text.Count; i++)
-            {
-                Console.WriteLine(text[i] + ", "); 
-            }
+            
             //try
             //{
             //    var query = from word in text                            
