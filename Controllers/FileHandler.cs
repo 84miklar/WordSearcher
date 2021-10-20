@@ -15,41 +15,15 @@ namespace WordSearcher.Controller
             var text1 = new Arrays(MakeTextIntoArray(text), fileName);
             AddTextArrayToList(text1.TextArray);
 
-            foreach (var item in text1)
-            {
+            fileName = "Computer programming1500.txt";
+            text = System.IO.File.ReadAllText(fileName);
+            var text2 = new Arrays(MakeTextIntoArray(text), fileName);
+            AddTextArrayToList(text1.TextArray);
 
             fileName = "javascript3000.txt";
             text = System.IO.File.ReadAllText(fileName);
             var text3 = new Arrays(MakeTextIntoArray(text), fileName);
             AddTextArrayToList(text3.TextArray);
-        }
-
-        private static string[] MakeTextIntoArray(string text)
-            //text = System.IO.File.ReadAllText(fileName);
-            //MakeTextIntoArray(text);
-
-            //fileName = "Computer programming1500.txt";
-            //text = System.IO.File.ReadAllText(fileName);
-            //MakeTextIntoArray(text);
-
-            //fileName = "javascript3000.txt";
-            //text = System.IO.File.ReadAllText(fileName);
-            //MakeTextIntoArray(text);
-
-        }
-
-        public static string[] MakeTextIntoArray(string text)
-            //text = System.IO.File.ReadAllText(fileName);
-            //MakeTextIntoArray(text);
-
-            //fileName = "Computer programming1500.txt";
-            //text = System.IO.File.ReadAllText(fileName);
-            //MakeTextIntoArray(text);
-
-            //fileName = "javascript3000.txt";
-            //text = System.IO.File.ReadAllText(fileName);
-            //MakeTextIntoArray(text);
-
         }
 
         public static string[] MakeTextIntoArray(string text)
