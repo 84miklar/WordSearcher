@@ -9,22 +9,55 @@ namespace WordSearcher.Model
     class Word
     {
         public string WordValue { get; set; }
-        public int PresenceInTextOne { get; set; }
-        public int PresenceInTextTwo { get; set; }
-        public int PresenceInTextThree { get; set; }
-        public Word(string word, int presenceInTextOne, int presenceInTextTwo, int presenceInTextThree)
+        public int presenceInTextOne = 0;
+        public int presenceInTextTwo = 0;
+        public int presenceInTextThree = 0;
+
+        public Dictionary<string, int> dictionary = new Dictionary<string, int>();
+        public Word(string word)
         {
             WordValue = word.ToUpper();
-            PresenceInTextOne = presenceInTextOne;
-            PresenceInTextTwo = presenceInTextTwo;
-            PresenceInTextThree = presenceInTextThree;
+            CalculatePresenceInText();
         }
 
-       
+        public void CalculatePresenceInText(Arrays textArray)
+        {
+            for (int i = 0; i < textArray.TextArray.Length; i++)
+            {
+                if (textArray.TextArray[i] == WordValue)
+                {
+                    if (textArray.Name == "c#1000.txt")
+                    {
+                        presenceInTextOne++;
+                        dictionary.Add(textArray.Name, presenceInTextOne);
+                    }
+                    if (textArray.Name == "Computer programming1500.txt")
+                    {
+                        presenceInTextTwo++;
+                        dictionary.Add(textArray.Name, presenceInTextTwo);
+                    }
+                    if (textArray.Name == "javascript3000.txt")
+                    {
+                        presenceInTextThree++;
+                        dictionary.Add(textArray.Name, presenceInTextThree);
+                    }
+                }
+            }
+        }
+        public string DisplayPrescenceInText()
+        {
+           
+            var sortedDict = dictionary.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            foreach (var item in dictionary)
+            {
+             return $"{dictionary.Keys}: {dictionary.Values} times";
+            }
+            return "";
+        }
+
         public override string ToString()
         {
-            string display = $"\n\nword: \"{WordValue.ToLower()}\" \n" + $"Presence in text: \n" + $"One - {PresenceInTextOne} times\n" + $"Two - {PresenceInTextTwo} times " + $"\n" +
-                $"Three - {PresenceInTextThree} times";
+            string display = $"\n\nword: \"{WordValue.ToLower()}\" \n" + $"Presence in text: \n" + DisplayPrescenceInText();
             return display;
         }
     }

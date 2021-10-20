@@ -4,7 +4,7 @@ using WordSearcher.View;
 
 namespace WordSearcher.Controllers
 {
-    class NodeHandler
+    class NodeController
     {
         public Node rootNode { get; set; }
         private Node currentNode;
@@ -14,7 +14,7 @@ namespace WordSearcher.Controllers
         private bool keepGoing = true;
 
         //Constructor
-        public NodeHandler(Word word)
+        public NodeController(Word word)
         {
             SetRootNode(word);
 
