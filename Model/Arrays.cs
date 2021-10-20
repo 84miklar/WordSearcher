@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace WordSearcher.Model
 {
     public class Arrays
     {
-        public string[] TextArray { get; set; }
+         public string[] TextArray { get; set; }
+        public string Name { get; set; }
+        public static List<Arrays> ArrayList { get; set; }
 
-        public Arrays(string[] textArray)
+        public Arrays(string[] textArray, string name)
         {
             TextArray = textArray;
-        }
+            Name = name;
+            ArrayList = new List<Arrays>();
+        }        
 
         /// <summary>
         ///  Användaren skall ha möjlighet att sortera orden i dokumenten i bokstavsordning och skriva ut de första x orden till konsolen.
