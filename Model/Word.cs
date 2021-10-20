@@ -17,7 +17,11 @@ namespace WordSearcher.Model
         public Word(string word)
         {
             WordValue = word.ToUpper();
-            CalculatePresenceInText();
+            foreach (var arr in Arrays.ArrayList)
+            {
+                CalculatePresenceInText(arr);
+            }
+            
         }
 
         public void CalculatePresenceInText(Arrays textArray)
@@ -57,8 +61,7 @@ namespace WordSearcher.Model
 
         public override string ToString()
         {
-            string display = $"\n\nword: \"{WordValue.ToLower()}\" \n" + $"Presence in text: \n" + DisplayPrescenceInText();
-            return display;
+            return $"\n\nword: \"{WordValue.ToLower()}\" \n" + $"Presence in text: \n" + DisplayPrescenceInText();
         }
     }
 }

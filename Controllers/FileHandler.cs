@@ -13,17 +13,17 @@ namespace WordSearcher.Controller
             string fileName = "c#1000.txt";
             string text = System.IO.File.ReadAllText(fileName);
             var text1 = new Arrays(MakeTextIntoArray(text), fileName);
-            AddTextArrayToList(text1.TextArray);
+            AddTextArrayToList(text1);
 
             fileName = "Computer programming1500.txt";
             text = System.IO.File.ReadAllText(fileName);
             var text2 = new Arrays(MakeTextIntoArray(text), fileName);
-            AddTextArrayToList(text1.TextArray);
+            AddTextArrayToList(text2);
 
             fileName = "javascript3000.txt";
             text = System.IO.File.ReadAllText(fileName);
             var text3 = new Arrays(MakeTextIntoArray(text), fileName);
-            AddTextArrayToList(text3.TextArray);
+            AddTextArrayToList(text3);
         }
 
         public static string[] MakeTextIntoArray(string text)
@@ -32,9 +32,9 @@ namespace WordSearcher.Controller
             string[] textArray = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             return textArray;
         }
-        private static void AddTextArrayToList(string[] textArray)
+        private static void AddTextArrayToList(Arrays textArray)
         {
-            Arrays.arrayList.Add(textArray);
+            Arrays.ArrayList.Add(textArray);
         }
     }
 }
