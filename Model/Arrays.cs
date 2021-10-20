@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WordSearcher.Model
 {
@@ -18,7 +15,28 @@ namespace WordSearcher.Model
             Name = name;
         }        
 
-        
-       
+        /// <summary>
+        ///  Användaren skall ha möjlighet att sortera orden i dokumenten i bokstavsordning och skriva ut de första x orden till konsolen.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public void FirstXWords(string[] text, int antalOrd)
+        {
+            try
+            {
+                var sortedWords =
+                    from name in text
+                    orderby name descending
+                    select name.Take(antalOrd);
+                foreach (string i in sortedWords)
+                {
+                    Console.Write(i);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Someting went wrong");
+            }
+        }
     }
 }
