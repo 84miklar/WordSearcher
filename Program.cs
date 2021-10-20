@@ -1,14 +1,11 @@
-﻿using System;
-using WordSearcher.Controller;
-using WordSearcher.Controllers;
-using WordSearcher.Model;
+﻿using WordSearcher.Controller;
 using WordSearcher.View;
 
 namespace WordSearcher
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             FileHandler.GetDataFromTexFile();
             MenuView.StartMenu();

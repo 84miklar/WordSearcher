@@ -3,15 +3,15 @@ using WordSearcher.Model;
 
 namespace WordSearcher.Controller
 {
-     class FileHandler
+    class FileHandler
     {
         /// <summary>
         /// läser in 3 textfiler och sparar dem i model Arrays
         /// </summary>
         public static void GetDataFromTexFile()
         {
-            string fileName = "c#1000.txt";
-            string text = System.IO.File.ReadAllText(fileName);
+            var fileName = "c#1000.txt";
+            var text = System.IO.File.ReadAllText(fileName);
             var text1 = new Arrays(MakeTextIntoArray(text), fileName);
             AddTextArrayToList(text1);
             fileName = "Computer programming1500.txt";
@@ -26,9 +26,8 @@ namespace WordSearcher.Controller
 
         public static string[] MakeTextIntoArray(string text)
         {
-            char[] separators = new char[] { ' ', '.', ',', '[', ']', '(', ')', '"', '*' };
-            string[] textArray = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            return textArray;
+            var separators = new char[] { ' ', '.', ',', '[', ']', '(', ')', '"', '*' };
+            return text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
         }
         private static void AddTextArrayToList(Arrays textArray)
         {

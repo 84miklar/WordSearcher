@@ -9,8 +9,7 @@ namespace WordSearcher.Controllers
 {
     public class WordController
     {
-
-      static NodeController nc = new NodeController();
+      static NodeController nc = new ();
         internal static void SearchWord()
         {
             Console.WriteLine("Type the word you are intrested in: ");

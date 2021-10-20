@@ -9,7 +9,6 @@ namespace WordSearcher.View
         public static bool keepGoing = true;
         public static void StartMenu()
         {
-            
             while (keepGoing)
             {
                 Console.WriteLine("Welcome");

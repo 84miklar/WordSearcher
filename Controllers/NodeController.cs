@@ -6,18 +6,17 @@ namespace WordSearcher.Controllers
 {
    class NodeController
     {
-        public  Node RootNode { get; set; }
-        private  Node currentNode;
-        private  int letterInWord = 0;
-        private  int letterValue = 0;
-        private  int comparisonLetterValue = 0;
-        private  bool keepGoing = true;
+        public Node RootNode { get; set; }
+        private Node currentNode;
+        private int letterInWord;
+        private int letterValue;
+        private int comparisonLetterValue;
+        private bool keepGoing = true;
 
         //Constructor
         public NodeController(Word word)
         {
             SetRootNode(word);
-
         }
         public NodeController()
         {
@@ -114,7 +113,6 @@ namespace WordSearcher.Controllers
                 currentNode = currentNode.RightNode;
                 SaveNodeToTree(word);
             }
-
         }
         /// <summary>
         /// Checks if left node is available, if so, sets it to the node.
@@ -133,7 +131,6 @@ namespace WordSearcher.Controllers
                 SaveNodeToTree(word);
             }
         }
-
         /// <summary>
         /// Converts a char to its int value.
         /// </summary>
@@ -154,7 +151,7 @@ namespace WordSearcher.Controllers
                 return;
             }
             DisplayNodes(node.LeftNode); //Send the left node to this method until node has no left node. Recursion.
-            Console.WriteLine(node);//Prints out node data. 
+            Console.WriteLine(node);//Prints out node data.
             DisplayNodes(node.RightNode);//send right node to this method and repeats the same procedure with all left nodes. Recursion.
         }
         /// <summary>

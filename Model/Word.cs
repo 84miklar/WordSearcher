@@ -14,8 +14,8 @@ namespace WordSearcher.Model
         public (string text, int amount) presenceInTextTwo;
         public (string text, int amount) presenceInTextThree;
 
-        public List<(string, int)> calculatedWords = new List<(string, int)>();
-        
+        public List<(string, int)> calculatedWords = new();
+        //Constructor
         public Word(string word)
         {
             WordValue = word.ToLower();
@@ -27,7 +27,7 @@ namespace WordSearcher.Model
             AddTuplesToList();
         }
         /// <summary>
-        /// Adds all tuples in Word class to a list. 
+        /// Adds all tuples in Word class to a list.
         /// </summary>
         private void AddTuplesToList()
         {
@@ -82,7 +82,7 @@ namespace WordSearcher.Model
                 }
             }
 
-            return returnString = builder.ToString();
+            return builder.ToString();
         }
         /// <summary>
         /// Sorts the list by how many times a word is precense in a text.
@@ -95,8 +95,7 @@ namespace WordSearcher.Model
 
         public override string ToString()
         {
-
-            return $"\n\nword: \"{WordValue.ToLower()}\" \n" + $"Presence in text: \n" + DisplayPrescenceInText();
+            return $"\n\nword: \"{WordValue.ToLower()}\" \nPresence in text: \n" + DisplayPrescenceInText();
         }
     }
 }
