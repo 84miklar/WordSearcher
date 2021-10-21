@@ -24,13 +24,28 @@ namespace WordSearcher.Controllers
             if (searchedWord != null && searchedWord != "")
             {
                 var newWord = new Word(searchedWord);
-                AddWordToNodeList(newWord);
+                Console.WriteLine(newWord);
+                WouldYouLikeToAddToTree(newWord);
+               
             }
             else
             {
                 WordView.InvalidInput();
             }
         }
+
+        private static void WouldYouLikeToAddToTree(Word newWord)
+        {
+            if(WordView.WouldYouLikeToAddToTree(newWord.WordValue))
+            {
+            AddWordToNodeList(newWord);
+            }
+            else
+            {
+                Console.WriteLine($"\"{newWord.WordValue}\" is not added to the list.");
+            }
+        }
+
         /// <summary>
         /// Sends the new Word to the NodeController.
         /// </summary>

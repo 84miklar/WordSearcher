@@ -84,7 +84,10 @@ namespace WordSearcher.Model
                     builder.Append($"\t{item.Item1}: {item.Item2} times\n");
                 }
             }
-
+            if (returnString == builder.ToString())
+            {
+                return "\tNo presence in any text...\n";
+            }
             return builder.ToString();
         }
         /// <summary>

@@ -17,5 +17,12 @@ namespace WordSearcher.View
         {
             Console.WriteLine("Invalid input. Input must be at least one character long.");
         }
+
+        internal static bool WouldYouLikeToAddToTree(string word)
+        {
+            Console.WriteLine($"Would you like to add \"{word}\" to the node tree structure?\n press \"y\" for yes or \"n\" for no.");
+            var input = Console.ReadLine();
+            return input.ToLower().Trim() == "y";
+        }
     }
 }

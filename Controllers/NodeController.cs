@@ -32,6 +32,7 @@ namespace WordSearcher.Controllers
                 RootNode = new Node(word);
                 SetCurrentNodeToRootNode();
                 NodeControllerView.SetRootNode();
+                NodeControllerView.SetNode(word.WordValue);
             }
             else
             {
