@@ -16,7 +16,8 @@ namespace WordSearcher.Controller
                     WordController.PrintWordsInTree();
                     break;
                 case 3:
-                    Model.Arrays.FirstXWords(Model.Arrays.ArrayList, 100);
+                    
+                    Model.Arrays.FirstXWords(Model.Arrays.ArrayList, ArrayController.PrintChosenAmountOfWords());
                     break;
                 case 4:                  
                     MenuView.keepGoing = false;
