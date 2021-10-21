@@ -17,7 +17,13 @@ namespace WordSearcher.Controller
                     break;
                 case 3:
                     break;
-                case 4:
+                case 4:                   
+                        
+                    
+                    Model.Arrays.FirstXWords(Model.Arrays.ArrayList, 10);
+
+                    break;
+                case 5:
                     MenuView.keepGoing = false;
                     break;
                 default:

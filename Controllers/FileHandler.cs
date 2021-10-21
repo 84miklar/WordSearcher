@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using WordSearcher.Model;
 
 namespace WordSearcher.Controller
@@ -6,7 +6,7 @@ namespace WordSearcher.Controller
     class FileHandler
     {
         /// <summary>
-        /// läser in 3 textfiler och sparar dem i model Arrays
+        /// lï¿½ser in 3 textfiler och sparar dem i model Arrays
         /// </summary>
         public static void GetDataFromTexFile()
         {

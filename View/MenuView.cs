@@ -1,6 +1,7 @@
 ﻿using System;
 using WordSearcher.Controller;
 using WordSearcher.Controllers;
+using WordSearcher.Model;
 
 namespace WordSearcher.View
 {
@@ -11,6 +12,7 @@ namespace WordSearcher.View
         {
             while (keepGoing)
             {
+                
                 Console.WriteLine("Welcome");
                 Console.WriteLine("1. Search for a word\n" +
                     "2. Print all searched words\n" +
