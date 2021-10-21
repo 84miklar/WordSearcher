@@ -23,7 +23,6 @@ namespace WordSearcher.Model
         /// <returns></returns>
         public static void FirstXWords(List<Arrays> listOfArray, int howManyWords)
         {
-
             foreach (var array in listOfArray)
             {
                 Console.WriteLine("--------------");
@@ -35,13 +34,7 @@ namespace WordSearcher.Model
                     if (word != "")
                     {
                         Console.WriteLine(word);
-                        
                     }
-
-
-
-
-
                 }
             }
         }
