@@ -18,7 +18,10 @@ namespace WordSearcher.Model
         //Constructor
         public Word(string word)
         {
-            WordValue = word.ToLower();
+            if (word != null)
+            {
+                WordValue = word.ToLower().Trim();
+            }
 
             foreach (var arr in Arrays.ArrayList)
             {

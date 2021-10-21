@@ -31,7 +31,7 @@ namespace WordSearcher.Controllers
             {
                 RootNode = new Node(word);
                 SetCurrentNodeToRootNode();
-                Console.WriteLine("New root node set");
+                NodeControllerView.SetRootNode();
             }
             else
             {
@@ -60,7 +60,7 @@ namespace WordSearcher.Controllers
                 //If the word i already in the tree, it should not be saved again.
                 if (word.WordValue == currentNode.Word.WordValue)
                 {
-                    Console.WriteLine($"\"{word.WordValue.ToLower()}\" is already in the list...");
+                    NodeControllerView.SaveNodeToTree(word.WordValue.ToLower());
                     keepGoing = false;
                     break;
                 }
@@ -106,6 +106,7 @@ namespace WordSearcher.Controllers
             if (currentNode.RightNode == null)
             {
                 currentNode.SetRightNode(new Node(word));
+                NodeControllerView.SetNode(word.WordValue);
             }
             //if right node is not null, set current node to the right node and do all checks from SaveNodeToTree again.
             else
@@ -123,6 +124,7 @@ namespace WordSearcher.Controllers
             if (currentNode.LeftNode == null)
             {
                 currentNode.SetLeftNode(new Node(word));
+                NodeControllerView.SetNode(word.WordValue);
             }
             //if left node is not null, set current node to the left node and do all checks from SaveNodeToTree again.
             else
