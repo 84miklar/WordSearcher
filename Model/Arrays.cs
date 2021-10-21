@@ -14,8 +14,7 @@ namespace WordSearcher.Model
         {
             TextArray = textArray;
             Name = name;
-        }        
-
+        }
         /// <summary>
         ///  Användaren skall ha möjlighet att sortera orden i dokumenten i bokstavsordning och skriva ut de första x orden till konsolen.
         /// </summary>

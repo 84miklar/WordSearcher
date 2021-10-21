@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WordSearcher.Controllers;
 using WordSearcher.View;
-
 
 namespace WordSearcher.Controller
 {
@@ -24,16 +18,9 @@ namespace WordSearcher.Controller
                 case 3:
                     Model.Arrays.FirstXWords(Model.Arrays.ArrayList, 10);
                     break;
-                case 4:
-
-                    MenuView.keepGoing = false;
-
-
-                    break;
-                case 5:
+                case 4:                  
                     MenuView.keepGoing = false;
                     break;
-                    
                 default:
                     if (input > 4)
                         MenuView.DefaultView();
