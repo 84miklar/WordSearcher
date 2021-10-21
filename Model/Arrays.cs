@@ -35,7 +35,13 @@ namespace WordSearcher.Model
                     if (word != "")
                     {
                         Console.WriteLine(word);
+                        
                     }
+
+
+
+
+
                 }
             }
         }
