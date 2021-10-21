@@ -4,11 +4,6 @@ namespace WordSearcher.View
 {
     class NodeControllerView
     {
-        public void OutputView()
-        {
-            //Console.WriteLine("");
-        }
-
         internal static void SetRootNode()
         {
             Console.WriteLine("New root node set");

@@ -15,7 +15,7 @@ namespace WordSearcher.View
                 
                 Console.WriteLine("Welcome");
                 Console.WriteLine("1. Search for a word\n" +
-                    "2. Print all searched words\n" +
+                    "2. Print all saved words\n" +
                     "3. Print a certain number of words\n" +
                     "4. Exit");
                 var choice = ControlHelper.TryParse();

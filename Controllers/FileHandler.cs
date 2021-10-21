@@ -1,5 +1,6 @@
 ﻿using System;
 using WordSearcher.Model;
+using WordSearcher.View;
 
 namespace WordSearcher.Controller
 {
@@ -25,13 +26,14 @@ namespace WordSearcher.Controller
             text = RemoveAllButLetters(text);
             var text3 = new Arrays(MakeTextIntoArray(text), fileName);
             AddTextArrayToList(text3);
+            FileHandlerView.ListsAdded(Arrays.ArrayList.Count == 3, Arrays.ArrayList.Count);
         }
 
         public static string[] MakeTextIntoArray(string text)
         {
             //  var separators = new char[] { ' ', '.', ',', '[', ']', '(', ')', '"', '*'};
             //var separators = new string[] { " ", ".",",", "[", "]", "(", ")", "\"" , "*", "\n","\r","\t", "/", "{", "}","-", "#" };
-            var separators = new char[] { ' ', '\n', '\r', '\t'};
+            var separators = new char[] { ' ', '\n', '\r', '\t' };
             return text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
         }
         private static void AddTextArrayToList(Arrays textArray)
