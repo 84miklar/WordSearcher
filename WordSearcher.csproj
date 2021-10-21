@@ -16,10 +16,7 @@
     <None Remove="Controllers\TestTextFile1.txt" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NUnitTestWordSearcher\NUnitTestWordSearcher.csproj" />
-  </ItemGroup>
-
+ 
   <ItemGroup>
     <Resource Include="Controllers\Readtest.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
