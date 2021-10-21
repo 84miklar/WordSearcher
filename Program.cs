@@ -1,5 +1,6 @@
 ﻿using WordSearcher.Controller;
 using WordSearcher.View;
+using System;
 
 namespace WordSearcher
 {
@@ -9,7 +10,6 @@ namespace WordSearcher
         {
             FileHandler.GetDataFromTexFile();
             MenuView.StartMenu();
-
         }
     }
 }
