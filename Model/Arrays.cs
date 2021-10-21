@@ -24,15 +24,16 @@ namespace WordSearcher.Model
         public static void FirstXWords(List<Arrays> listOfArray, int howManyWords)
         {
 
+            
             foreach (var array in listOfArray)
-            {
+            {                
                 Console.WriteLine("--------------");
                 Console.WriteLine(array.Name + " top " + howManyWords + ":");
                 Console.WriteLine("--------------");
                 
-                foreach (var word in array.TextArray.Take(howManyWords))
+                foreach (var word in array.TextArray.OrderBy(od => od).Take(howManyWords))
                 {
-                    Console.WriteLine(word);
+                    Console.WriteLine(word); 
                 }
             }
             
