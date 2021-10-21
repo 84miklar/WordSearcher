@@ -23,6 +23,8 @@ namespace WordSearcher.Model
         /// <returns></returns>
         public static void FirstXWords(List<Arrays> listOfArray, int howManyWords)
         {
+
+
             foreach (var array in listOfArray)
             {
                 Console.WriteLine("--------------");
@@ -31,9 +33,34 @@ namespace WordSearcher.Model
 
                 foreach (var word in array.TextArray.OrderBy(od => od).Take(howManyWords))
                 {
-                    Console.WriteLine(word);
+                    if (word != "")
+                    {
+                        Console.WriteLine(word);
+                    }
                 }
             }
+
+            //try
+            //{
+            //    var query = from word in text                            
+            //                select word;
+            //    foreach (var word in query)
+            //    {
+            //        Console.WriteLine(word.TextArray);
+            //    }
+            //    //var sortedWords =
+            //    //    from name in text
+            //    //    orderby name descending
+            //    //    select name//.Take(howManyWords);
+            //    //foreach (string i in sortedWords)
+            //    //{
+            //    //    Console.Write(i);
+            //    //}
+            //}
+            //catch (Exception)
+            //{
+            //    Console.WriteLine("Someting went wrong");
+            //}
         }
     }
 }
