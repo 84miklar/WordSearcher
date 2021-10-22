@@ -10,7 +10,7 @@ namespace WordSearcher.Controllers
     {
         public static int PrintChosenAmountOfWords()
         {
-            Console.WriteLine("Enter number of words to print from eatch Array");
+            Console.WriteLine("Enter number of words to print from each Array");
             var number = ControlHelper.TryParse();
             return number;
         }

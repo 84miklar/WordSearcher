@@ -8,6 +8,11 @@ namespace WordSearcher.View
 {
     public class FileHandlerView
     {
+        /// <summary>
+        /// Outputs amount of texts added to the application, or error message.
+        /// </summary>
+        /// <param name="listsAdded">true if the amount of texts in list is same as expected.</param>
+        /// <param name="count">Amount of texts in list</param>
         internal static void ListsAdded(bool listsAdded, int count)
         {
             if (listsAdded)

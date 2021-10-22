@@ -5,6 +5,10 @@ namespace WordSearcher.Controller
 {
     class MenuController
     {
+        /// <summary>
+        /// Sends user to different parts of the application depending on input.
+        /// </summary>
+        /// <param name="input">users choice in start menu/></param>
         public static void StartMenu(int input)
         {
             switch (input)
