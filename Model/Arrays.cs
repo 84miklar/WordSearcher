@@ -17,7 +17,7 @@ namespace WordSearcher.Model
         }
 
         /// <summary>
-        ///  Användaren skall ha möjlighet att sortera orden i dokumenten i bokstavsordning och skriva ut de första x orden till konsolen.
+        ///  Sorts ListArray and Prints input-Words from each Array
         /// </summary>
         /// <param name="listOfArray"></param>
         /// <returns></returns>
@@ -29,7 +29,7 @@ namespace WordSearcher.Model
                 Console.WriteLine(array.Name + " top " + howManyWords + ":");
                 Console.WriteLine("--------------");
 
-                foreach (var word in array.TextArray.OrderBy(od => od).Take(howManyWords))
+                foreach (var word in array.TextArray.OrderBy(_ => _).Take(howManyWords))
                 {
                     if (word != "")
                     {
