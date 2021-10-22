@@ -41,14 +41,6 @@ namespace WordSearcher.Controllers
             }
         }
         /// <summary>
-        /// Method to call when a new word should be saved in node tree.
-        /// </summary>
-        /// <param name="word">The word to save in list.</param>
-        //public void SaveData(Word word)
-        //{
-        //    SaveNodeToTree(word);
-        //}
-        /// <summary>
         /// Saves data in tree structure according to char value.
         /// </summary>
         /// <param name="word">The word to add to list</param>
@@ -80,22 +72,28 @@ namespace WordSearcher.Controllers
                     letterValue = FindLetterValue(word.WordValue[letterInWord]);
                     comparisonLetterValue = FindLetterValue(currentNode.Word.WordValue[letterInWord]);
                 }
-                //compares if letter in word is BEFORE the letter in current node.
-                if (letterValue < comparisonLetterValue)
-                {
-                    TrySetLeftNode(word);
-                    keepGoing = false;
-                    break;
-                }
-                //Letter in word should be AFTER the letter in current node.
-                else
-                {
-                    TrySetRightNode(word);
-                    keepGoing = false;
-                    break;
-                }
+                TryToSetLeftOrRightNode(word);
             }
             letterInWord = 0;
+        }
+        /// <summary>
+        /// Tries to set the left or right node.
+        /// </summary>
+        /// <param name="word">the Word to set.</param>
+        private void TryToSetLeftOrRightNode(Word word)
+        {
+            //compares if letter in word is BEFORE the letter in current node.
+            if (letterValue < comparisonLetterValue)
+            {
+                TrySetLeftNode(word);
+                keepGoing = false;
+            }
+            //Letter in word should be AFTER the letter in current node.
+            else
+            {
+                TrySetRightNode(word);
+                keepGoing = false;
+            }
         }
         /// <summary>
         /// Checks if right node is available, if so, sets it to the node.

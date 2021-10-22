@@ -48,24 +48,27 @@ namespace WordSearcher.Model
         /// <param name="textArray">The array to check for words in</param>
         private void CalculatePresenceInText(Arrays textArray)
         {
-            for (int i = 0; i < textArray.TextArray.Length; i++)
+            if (textArray.TextArray != null)
             {
-                if (textArray.TextArray[i].ToLower() == WordValue)
+                for (int i = 0; i < textArray.TextArray.Length; i++)
                 {
-                    if (textArray.Name == "c#1000.txt")
+                    if (textArray.TextArray[i].ToLower() == WordValue)
                     {
-                        presenceInTextOne.text = textArray.Name;
-                        presenceInTextOne.amount++;
-                    }
-                    if (textArray.Name == "Computer programming1500.txt")
-                    {
-                        presenceInTextTwo.text = textArray.Name;
-                        presenceInTextTwo.amount++;
-                    }
-                    if (textArray.Name == "javascript3000.txt")
-                    {
-                        presenceInTextThree.text = textArray.Name;
-                        presenceInTextThree.amount++;
+                        if (textArray.Name == "c#1000.txt")
+                        {
+                            presenceInTextOne.text = textArray.Name;
+                            presenceInTextOne.amount++;
+                        }
+                        if (textArray.Name == "Computer programming1500.txt")
+                        {
+                            presenceInTextTwo.text = textArray.Name;
+                            presenceInTextTwo.amount++;
+                        }
+                        if (textArray.Name == "javascript3000.txt")
+                        {
+                            presenceInTextThree.text = textArray.Name;
+                            presenceInTextThree.amount++;
+                        }
                     }
                 }
             }
@@ -114,7 +117,7 @@ namespace WordSearcher.Model
                 int nrLeft = max - i;
                 for (int j = 0; j < nrLeft; j++)
                 {
-                    if(calculatedWords2[j].amount > calculatedWords2[j + 1].amount)
+                    if (calculatedWords2[j].amount > calculatedWords2[j + 1].amount)
                     {
                         var temp = calculatedWords2[j];
                         calculatedWords2[j] = calculatedWords2[j + 1];

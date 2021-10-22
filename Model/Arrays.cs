@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using WordSearcher.View;
 
 namespace WordSearcher.Model
 {
@@ -24,19 +25,26 @@ namespace WordSearcher.Model
         //! Ordo (n^2)
         public static void FirstXWords(List<Arrays> listOfArray, int howManyWords)
         {
-            foreach (var array in listOfArray)
+            if (listOfArray != null)
             {
-                Console.WriteLine("--------------");
-                Console.WriteLine(array.Name + " top " + howManyWords + ":");
-                Console.WriteLine("--------------");
-
-                foreach (var word in array.TextArray.OrderBy(_ => _).Take(howManyWords))
+                foreach (var array in listOfArray)
                 {
-                    if (word != "")
+                    Console.WriteLine("--------------");
+                    Console.WriteLine(array.Name + " top " + howManyWords + ":");
+                    Console.WriteLine("--------------");
+
+                    foreach (var word in array.TextArray.OrderBy(_ => _).Take(howManyWords))
                     {
-                        Console.WriteLine(word);
+                        if (word != "")
+                        {
+                            Console.WriteLine(word);
+                        }
                     }
                 }
+            }
+            else
+            {
+                ArraysView.SomethingWrong();
             }
         }
     }

@@ -8,6 +8,9 @@ namespace WordSearcher.View
     public class MenuView
     {
         public static bool keepGoing = true;
+        /// <summary>
+        /// Outputs the main menu.
+        /// </summary>
         public static void StartMenu()
         {
             while (keepGoing)
@@ -24,7 +27,7 @@ namespace WordSearcher.View
             }
         }
         /// <summary>
-        /// Output if menu choice is >4.
+        /// Outputs: "Invalid choice. Input must be 1-4.", if menu choice is >4.
         /// </summary>
         public static void DefaultView()
         {

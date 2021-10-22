@@ -7,7 +7,7 @@ namespace WordSearcher.Controller
     class FileHandler
     {
         /// <summary>
-        /// l�ser in 3 textfiler och sparar dem i model Arrays
+        /// Reads textfiles and turns them into separate text arrays in an array.
         /// </summary>
         public static void GetDataFromTexFile()
         {
@@ -28,15 +28,26 @@ namespace WordSearcher.Controller
             AddTextArrayToList(text3);
             FileHandlerView.ListsAdded(Arrays.ArrayList.Count == 3, Arrays.ArrayList.Count);
         }
-
-        public static string[] MakeTextIntoArray(string text)
+        /// <summary>
+        /// Turns a text into an array with only words and letters.
+        /// </summary>
+        /// <param name="text">The text to convert to array</param>
+        /// <returns>An array of strings</returns>
+        private static string[] MakeTextIntoArray(string text)
         {
             var separators = new char[] { ' ', '\n', '\r', '\t' };
-            return text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            if (text != null)
+            {
+                return text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            }
+            return null;
         }
         private static void AddTextArrayToList(Arrays textArray)
         {
+            if(textArray.TextArray != null && textArray.Name !=null)
+            {
             Arrays.ArrayList.Add(textArray);
+            }
         }
         public static string RemoveAllButLetters(string text)
         {

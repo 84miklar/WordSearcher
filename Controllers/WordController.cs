@@ -26,7 +26,6 @@ namespace WordSearcher.Controllers
                 var newWord = new Word(searchedWord);
                 Console.WriteLine(newWord);
                 WouldYouLikeToAddToTree(newWord);
-
             }
             else
             {
