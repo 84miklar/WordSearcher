@@ -18,5 +18,10 @@ namespace WordSearcher.View
         {
             Console.WriteLine($"\n\"{wordValue}\" is added to the node tree structure");
         }
+
+        internal static void DisplayNodesFail()
+        {
+            Console.WriteLine("Your tree of saved words is empty...");
+        }
     }
 }

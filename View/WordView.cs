@@ -24,5 +24,10 @@ namespace WordSearcher.View
             var input = Console.ReadLine();
             return input.ToLower().Trim() == "y";
         }
+
+        internal static void DoNotAddWordToTree(string word)
+        {
+            Console.WriteLine($"\"{word}\" is not added to the list.");
+        }
     }
 }

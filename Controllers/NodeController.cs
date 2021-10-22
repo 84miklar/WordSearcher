@@ -4,7 +4,7 @@ using WordSearcher.View;
 
 namespace WordSearcher.Controllers
 {
-   class NodeController
+    class NodeController
     {
         public Node RootNode { get; set; }
         private Node currentNode;
@@ -37,18 +37,17 @@ namespace WordSearcher.Controllers
             else
             {
                 SetCurrentNodeToRootNode();
-                SaveData(word);
+                SaveNodeToTree(word);
             }
         }
         /// <summary>
         /// Method to call when a new word should be saved in node tree.
         /// </summary>
         /// <param name="word">The word to save in list.</param>
-        public void SaveData(Word word)
-        {
-            SetCurrentNodeToRootNode();
-            SaveNodeToTree(word);
-        }
+        //public void SaveData(Word word)
+        //{
+        //    SaveNodeToTree(word);
+        //}
         /// <summary>
         /// Saves data in tree structure according to char value.
         /// </summary>
@@ -147,6 +146,11 @@ namespace WordSearcher.Controllers
         /// Displays all nodes in the node tree, starting from the far left of the root.
         /// </summary>
         /// <param name="node"></param>
+        //------Kommentar för VG -----
+        //Denna metod använder sig av rekursion när den söker sig ned i trädet och letar efter en null-node. För varje gång den inte träffar null,
+        //kallas samma metod igen och anropet läggs på stacken. När null påträffas börjar den skriva ut det senaste anropet, för att sedan beta av anrop efter anrop.
+        //Detta gör att orden skrivs ut i bokstavsordning.
+        //Detta hade gått att lösa med en loop också, men det hade antagligen tagit något längre tid och blivit mer kod. 
         private void DisplayNodes(Node node) //Starts with the root node
         {
             if (node == null)
@@ -162,17 +166,24 @@ namespace WordSearcher.Controllers
         /// </summary>
         public void DisplayNodes()
         {
-            DisplayNodes(RootNode);
+            if (RootNode == null)
+            {
+                NodeControllerView.DisplayNodesFail();
+            }
+            else
+            {
+                DisplayNodes(RootNode);
+            }
         }
         /// <summary>
         /// Sets the current node to the root node for comparison.
         /// </summary>
         private void SetCurrentNodeToRootNode()
+        {
+            if (RootNode != null)
             {
-                if (RootNode != null)
-                {
-                    currentNode = RootNode;
-                }
+                currentNode = RootNode;
             }
         }
     }
+}

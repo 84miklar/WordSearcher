@@ -26,23 +26,26 @@ namespace WordSearcher.Controllers
                 var newWord = new Word(searchedWord);
                 Console.WriteLine(newWord);
                 WouldYouLikeToAddToTree(newWord);
-               
+
             }
             else
             {
                 WordView.InvalidInput();
             }
         }
-
+        /// <summary>
+        /// Method for handling choice if word should be saved to tree or not.
+        /// </summary>
+        /// <param name="newWord">The searched Word</param>
         private static void WouldYouLikeToAddToTree(Word newWord)
         {
-            if(WordView.WouldYouLikeToAddToTree(newWord.WordValue))
+            if (WordView.WouldYouLikeToAddToTree(newWord.WordValue))
             {
-            AddWordToNodeList(newWord);
+                AddWordToNodeList(newWord);
             }
             else
             {
-                Console.WriteLine($"\"{newWord.WordValue}\" is not added to the list.");
+                WordView.DoNotAddWordToTree(newWord.WordValue);
             }
         }
 

@@ -10,7 +10,6 @@ namespace WordSearcher
         {
             FileHandler.GetDataFromTexFile();
             MenuView.StartMenu();
-            //testtest
         }
     }
 }

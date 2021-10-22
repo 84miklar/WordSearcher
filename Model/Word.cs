@@ -13,8 +13,8 @@ namespace WordSearcher.Model
         public (string text, int amount) presenceInTextOne;
         public (string text, int amount) presenceInTextTwo;
         public (string text, int amount) presenceInTextThree;
-
-        public List<(string, int)> calculatedWords = new();
+        private (string text, int amount)[] calculatedWords2 = new (string text, int amount)[3];
+        //private List<(string, int)> calculatedWords = new();
         //Constructor
         public Word(string word)
         {
@@ -34,9 +34,12 @@ namespace WordSearcher.Model
         /// </summary>
         private void AddTuplesToList()
         {
-            calculatedWords.Add(this.presenceInTextOne);
-            calculatedWords.Add(this.presenceInTextTwo);
-            calculatedWords.Add(this.presenceInTextThree);
+            calculatedWords2[0] = this.presenceInTextOne;
+            calculatedWords2[1] = this.presenceInTextTwo;
+            calculatedWords2[2] = this.presenceInTextThree;
+            //calculatedWords.Add(this.presenceInTextOne);
+            //calculatedWords.Add(this.presenceInTextTwo);
+            //calculatedWords.Add(this.presenceInTextThree);
         }
         /// <summary>
         /// Calculates the presence of a word in an array of strings.
@@ -73,7 +76,7 @@ namespace WordSearcher.Model
         /// <returns>A string with filename and amount of times a word is precense i a text.</returns>
         public string DisplayPrescenceInText()
         {
-            var sortedList = SortListOfCalculatedWords();
+            var sortedList = SortArrayOfCalculatedWords();
             var returnString = "";
             var builder = new StringBuilder();
             builder.Append(returnString);
@@ -91,12 +94,35 @@ namespace WordSearcher.Model
             return builder.ToString();
         }
         /// <summary>
-        /// Sorts the list by how many times a word is precense in a text.
+        /// Sorts the amount of times a word is precense in different texts.
         /// </summary>
         /// <returns>A sorted list of tuples.</returns>
-        private List<(string, int)> SortListOfCalculatedWords()
+        //private List<(string, int)> SortListOfCalculatedWords()
+        //{
+        //    return calculatedWords.OrderBy(x => x.Item2).ToList();
+        //}
+
+        /// <summary>
+        /// Sorts the amount of times a word is precense in different texts.
+        /// </summary>
+        /// <returns>A sorted array of tuples.</returns>
+        private (string, int)[] SortArrayOfCalculatedWords()
         {
-            return calculatedWords.OrderBy(x => x.Item2).ToList();
+            int max = calculatedWords2.Length - 1;
+            for (int i = 0; i < max; i++)
+            {
+                int nrLeft = max - i;
+                for (int j = 0; j < nrLeft; j++)
+                {
+                    if(calculatedWords2[j].amount > calculatedWords2[j + 1].amount)
+                    {
+                        var temp = calculatedWords2[j];
+                        calculatedWords2[j] = calculatedWords2[j + 1];
+                        calculatedWords2[j + 1] = temp;
+                    }
+                }
+            }
+            return calculatedWords2;
         }
 
         public override string ToString()

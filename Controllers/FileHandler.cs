@@ -31,8 +31,6 @@ namespace WordSearcher.Controller
 
         public static string[] MakeTextIntoArray(string text)
         {
-            //  var separators = new char[] { ' ', '.', ',', '[', ']', '(', ')', '"', '*'};
-            //var separators = new string[] { " ", ".",",", "[", "]", "(", ")", "\"" , "*", "\n","\r","\t", "/", "{", "}","-", "#" };
             var separators = new char[] { ' ', '\n', '\r', '\t' };
             return text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
         }
