@@ -11,7 +11,7 @@ namespace WordSearcher.Controllers
         private int letterInWord;
         private int letterValue;
         private int comparisonLetterValue;
-        private bool keepGoing = true;
+        public bool keepGoing = true;
 
         //Constructor
         public NodeController(Word word)
@@ -41,39 +41,40 @@ namespace WordSearcher.Controllers
             }
         }
         /// <summary>
-        /// Saves data in tree structure according to char value.
+        /// Saves data in tree structure according to char value. Uses recursion.
         /// </summary>
         /// <param name="word">The word to add to list</param>
         private void SaveNodeToTree(Word word)
         {
-            keepGoing = true;
-            while (keepGoing)
+            //If the word i already in the tree, it should not be saved again.
+            if (word.WordValue == currentNode.Word.WordValue && keepGoing)
             {
-                //If the word i already in the tree, it should not be saved again.
-                if (word.WordValue == currentNode.Word.WordValue)
-                {
-                    NodeControllerView.SaveNodeToTree(word.WordValue.ToLower());
-                    keepGoing = false;
-                    break;
-                }
-                //Compares if first letter in word is same as currentNode first letter. If so, checks the next letter by recursion.
-                if (letterInWord < word.WordValue.Length && letterInWord < currentNode.Word.WordValue.Length && word.WordValue[letterInWord] == currentNode.Word.WordValue[letterInWord])
-                {
-                   
-                        letterInWord++;
-                        SaveNodeToTree(word);
-                        break;
-                }
-                //Transforms the letter to an int value
-                else
-                {
-                    if(letterInWord < word.WordValue.Length)
+                NodeControllerView.SaveNodeToTree(word.WordValue.ToLower());
+                keepGoing = false;
+            }
+            //Compares if first letter in word is same as currentNode first letter. If so, checks the next letter by recursion.
+            //False if the letters to compare is not possible because of word length.
+            if (letterInWord < word.WordValue.Length &&
+            letterInWord < currentNode.Word.WordValue.Length &&
+            word.WordValue[letterInWord] == currentNode.Word.WordValue[letterInWord] &&
+            keepGoing)
+            {
+                letterInWord++;
+                SaveNodeToTree(word);
+            }
+            //Transforms the letter to an int value
+            else if (keepGoing)
+            {
+                if (letterInWord < word.WordValue.Length)
                     letterValue = FindLetterValue(word.WordValue[letterInWord]);
-                    if(letterInWord < currentNode.Word.WordValue.Length)
+                if (letterInWord < currentNode.Word.WordValue.Length)
                     comparisonLetterValue = FindLetterValue(currentNode.Word.WordValue[letterInWord]);
-                }
+            }
+            if (keepGoing)
+            {
                 TryToSetLeftOrRightNode(word);
             }
+
             letterInWord = 0;
         }
         /// <summary>
@@ -111,6 +112,7 @@ namespace WordSearcher.Controllers
             {
                 currentNode = currentNode.RightNode;
                 letterInWord = 0;
+                keepGoing = true;
                 SaveNodeToTree(word);
             }
         }
@@ -130,6 +132,7 @@ namespace WordSearcher.Controllers
             {
                 currentNode = currentNode.LeftNode;
                 letterInWord = 0;
+                keepGoing = true;
                 SaveNodeToTree(word);
             }
         }
