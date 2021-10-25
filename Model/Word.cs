@@ -111,6 +111,7 @@ namespace WordSearcher.Model
         /// <returns>A sorted array of tuples.</returns>
         private (string, int)[] SortArrayOfCalculatedWords()
         {
+            //The slow Bubble Sort i Ok here. The length of the array will never be longer than 3 at this moment.
             int max = calculatedWords2.Length - 1;
             for (int i = 0; i < max; i++)
             {

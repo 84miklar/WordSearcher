@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using WordSearcher.Model;
 using WordSearcher.View;
 
@@ -37,13 +38,24 @@ namespace WordSearcher.Controllers
             else
             {
                 SetCurrentNodeToRootNode();
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
                 SaveNodeToTree(word);
+                sw.Stop();
+                Console.WriteLine($"time elapsed: {sw.Elapsed}");
             }
         }
         /// <summary>
         /// Saves data in tree structure according to char value. Uses recursion.
         /// </summary>
         /// <param name="word">The word to add to list</param>
+        //------Kommentar för VG -----
+        //Denna metod använder sig av rekursion när den jämför bokstäver i ord, om de är samma eller inte.
+        //Koden följer de tre principerna av rekursion:
+        //1. Den har ett basfall där den kontrollerar om bokstäverna är lika eller ej.
+        //2. Den ändrar sitt tillstånd, byter bokstav till nästa i orden (letterInWord++).
+        //3. Den kallar på sig själv.
+        //Denna löste vi med en loop först vilket visade sig vara lite, lite snabbare, men valde att göra en ren rekursionsmetod istället för att uppfylla målet av användandet av rekursion. 
         private void SaveNodeToTree(Word word)
         {
             //If the word i already in the tree, it should not be saved again.
@@ -151,8 +163,12 @@ namespace WordSearcher.Controllers
         /// <param name="node"></param>
         //------Kommentar för VG -----
         //Denna metod använder sig av rekursion när den söker sig ned i trädet och letar efter en null-node. För varje gång den inte träffar null,
-        //kallas samma metod igen och anropet läggs på stacken. När null påträffas börjar den skriva ut det senaste anropet, för att sedan beta av anrop efter anrop.
+        //kallas samma metod igen och anropet läggs på stacken. När null påträffas börjar den skriva ut det senaste anropet (längs upp i stacken), för att sedan beta av anrop efter anrop.
         //Detta gör att orden skrivs ut i bokstavsordning.
+        //Koden följer de tre principerna av rekursion:
+        //1. Den har ett basfall där den kontrollerar efter null.
+        //2. Den ändrar sitt tillstånd, byter nod till en längre ned i trädet.
+        //3. Den kallar på sig själv.
         //Detta hade gått att lösa med en loop också, men det hade antagligen tagit något längre tid och blivit mer kod. 
         private void DisplayNodes(Node node) //Starts with the root node
         {
