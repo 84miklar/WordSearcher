@@ -57,19 +57,19 @@ namespace WordSearcher.Controllers
                     break;
                 }
                 //Compares if first letter in word is same as currentNode first letter. If so, checks the next letter by recursion.
-                if (word.WordValue[letterInWord] == currentNode.Word.WordValue[letterInWord])
+                if (letterInWord < word.WordValue.Length && letterInWord < currentNode.Word.WordValue.Length && word.WordValue[letterInWord] == currentNode.Word.WordValue[letterInWord])
                 {
-                    if (letterInWord < currentNode.Word.WordValue.Length)
-                    {
+                   
                         letterInWord++;
                         SaveNodeToTree(word);
                         break;
-                    }
                 }
                 //Transforms the letter to an int value
                 else
                 {
+                    if(letterInWord < word.WordValue.Length)
                     letterValue = FindLetterValue(word.WordValue[letterInWord]);
+                    if(letterInWord < currentNode.Word.WordValue.Length)
                     comparisonLetterValue = FindLetterValue(currentNode.Word.WordValue[letterInWord]);
                 }
                 TryToSetLeftOrRightNode(word);
@@ -110,6 +110,7 @@ namespace WordSearcher.Controllers
             else
             {
                 currentNode = currentNode.RightNode;
+                letterInWord = 0;
                 SaveNodeToTree(word);
             }
         }
@@ -128,6 +129,7 @@ namespace WordSearcher.Controllers
             else
             {
                 currentNode = currentNode.LeftNode;
+                letterInWord = 0;
                 SaveNodeToTree(word);
             }
         }
