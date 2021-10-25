@@ -55,10 +55,12 @@ namespace WordSearcher.Controllers
         //1. Den har ett basfall där den kontrollerar om bokstäverna är lika eller ej.
         //2. Den ändrar sitt tillstånd, byter bokstav till nästa i orden (letterInWord++).
         //3. Den kallar på sig själv.
-        //Denna löste vi med en loop först vilket visade sig vara lite, lite snabbare, men valde att göra en ren rekursionsmetod istället för att uppfylla målet av användandet av rekursion. 
+        //Denna löste vi med en loop först vilket visade sig vara lite, lite snabbare vid ett litet träd,
+        //men valde att göra en ren rekursionsmetod istället för att gå snabbare vid stora mängder data.
+        // Ordo = O(log n + 5)
         private void SaveNodeToTree(Word word)
         {
-            //If the word i already in the tree, it should not be saved again.
+            //If the word is already in the tree, it should not be saved again.
             if (word.WordValue == currentNode.Word.WordValue && keepGoing)
             {
                 NodeControllerView.SaveNodeToTree(word.WordValue.ToLower());
@@ -86,7 +88,6 @@ namespace WordSearcher.Controllers
             {
                 TryToSetLeftOrRightNode(word);
             }
-
             letterInWord = 0;
         }
         /// <summary>
@@ -169,7 +170,7 @@ namespace WordSearcher.Controllers
         //1. Den har ett basfall där den kontrollerar efter null.
         //2. Den ändrar sitt tillstånd, byter nod till en längre ned i trädet.
         //3. Den kallar på sig själv.
-        //Detta hade gått att lösa med en loop också, men det hade antagligen tagit något längre tid och blivit mer kod. 
+        //Detta hade gått att lösa med en loop också, men det hade antagligen tagit något längre tid vid stora mängder data. Vid lite data är det mycket liten skillnad. 
         private void DisplayNodes(Node node) //Starts with the root node
         {
             if (node == null)
