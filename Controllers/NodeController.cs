@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using WordSearcher.Model;
 using WordSearcher.View;
 
@@ -38,11 +37,7 @@ namespace WordSearcher.Controllers
             else
             {
                 SetCurrentNodeToRootNode();
-                Stopwatch sw = new Stopwatch();
-                sw.Start();
                 SaveNodeToTree(word);
-                sw.Stop();
-                Console.WriteLine($"time elapsed: {sw.Elapsed}");
             }
         }
         /// <summary>
@@ -171,6 +166,7 @@ namespace WordSearcher.Controllers
         //2. Den ändrar sitt tillstånd, byter nod till en längre ned i trädet.
         //3. Den kallar på sig själv.
         //Detta hade gått att lösa med en loop också, men det hade antagligen tagit något längre tid vid stora mängder data. Vid lite data är det mycket liten skillnad. 
+        //Ordo = O(log n)
         private void DisplayNodes(Node node) //Starts with the root node
         {
             if (node == null)

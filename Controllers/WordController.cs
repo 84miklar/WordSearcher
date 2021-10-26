@@ -60,9 +60,6 @@ namespace WordSearcher.Controllers
         /// <summary>
         /// Sends the user to DisplayNodes in NodeController.
         /// </summary>
-        internal static void PrintWordsInTree()
-        {
-            nc.DisplayNodes();
-        }
+        internal static void PrintWordsInTree() => nc.DisplayNodes();
     }
 }
