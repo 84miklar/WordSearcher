@@ -52,7 +52,7 @@ namespace WordSearcher.Controllers
         //3. Den kallar på sig själv.
         //Denna löste vi med en loop först vilket visade sig vara lite, lite snabbare vid ett litet träd,
         //men valde att göra en ren rekursionsmetod istället för att gå snabbare vid stora mängder data.
-        // Ordo = O(log n + 5)
+        // Ordo = O(log n + 6) => Worst case
         private void SaveNodeToTree(Word word)
         {
             //If the word is already in the tree, it should not be saved again.
