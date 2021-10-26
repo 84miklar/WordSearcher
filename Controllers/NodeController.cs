@@ -44,6 +44,7 @@ namespace WordSearcher.Controllers
         /// Saves data in tree structure according to char value.
         /// </summary>
         /// <param name="word">The word to add to list</param>
+        //Ordo                      O(n  log n)
         private void SaveNodeToTree(Word word)
         {
             keepGoing = true;

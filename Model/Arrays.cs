@@ -22,7 +22,8 @@ namespace WordSearcher.Model
         /// </summary>
         /// <param name="listOfArray"></param>
         /// <returns></returns>
-        //! Ordo (n^2)
+        //! Ordo    O(n^2 +4)
+        
         public static void FirstXWords(List<Arrays> listOfArray, int howManyWords)
         {
             if (listOfArray != null)

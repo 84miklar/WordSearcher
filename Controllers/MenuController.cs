@@ -1,4 +1,5 @@
 using WordSearcher.Controllers;
+using WordSearcher.Model;
 using WordSearcher.View;
 
 namespace WordSearcher.Controller
@@ -21,7 +22,7 @@ namespace WordSearcher.Controller
                     break;
                 case 3:
                     
-                    Model.Arrays.FirstXWords(Model.Arrays.ArrayList, ArrayController.PrintChosenAmountOfWords());
+                  Arrays.FirstXWords(Arrays.ArrayList, ArrayController.PrintChosenAmountOfWords());
                     break;
                 case 4:                  
                     MenuView.keepGoing = false;
