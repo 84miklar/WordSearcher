@@ -29,7 +29,7 @@ namespace WordSearcher.Model
             {
                 foreach (var array in listOfArray)
                 {
-                    Console.WriteLine("--------------");
+                    Console.WriteLine("\n\n--------------");
                     Console.WriteLine(array.Name + " top " + howManyWords + ":");
                     Console.WriteLine("--------------");
 
@@ -37,7 +37,7 @@ namespace WordSearcher.Model
                     {
                         if (word != "")
                         {
-                            Console.WriteLine(word);
+                            Console.Write(word + ", ");
                         }
                     }
                 }
