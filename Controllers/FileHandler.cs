@@ -1,6 +1,7 @@
 ﻿using System;
 using WordSearcher.Model;
 using WordSearcher.View;
+using System.IO;
 
 namespace WordSearcher.Controller
 {
@@ -12,18 +13,18 @@ namespace WordSearcher.Controller
         public static void GetDataFromTexFile()
         {
             var fileName = "c#1000.txt";
-            var text = System.IO.File.ReadAllText(fileName);
-            text = RemoveAllButLetters(text);
+            var text = File.ReadAllText(fileName);
+            text = RemoveAllButLettersAndWhiteSpace(text);
             var text1 = new Arrays(MakeTextIntoArray(text), fileName);
             AddTextArrayToList(text1);
             fileName = "Computer programming1500.txt";
-            text = System.IO.File.ReadAllText(fileName);
-            text = RemoveAllButLetters(text);
+            text = File.ReadAllText(fileName);
+            text = RemoveAllButLettersAndWhiteSpace(text);
             var text2 = new Arrays(MakeTextIntoArray(text), fileName);
             AddTextArrayToList(text2);
             fileName = "javascript3000.txt";
-            text = System.IO.File.ReadAllText(fileName);
-            text = RemoveAllButLetters(text);
+            text = File.ReadAllText(fileName);
+            text = RemoveAllButLettersAndWhiteSpace(text);
             var text3 = new Arrays(MakeTextIntoArray(text), fileName);
             AddTextArrayToList(text3);
             FileHandlerView.ListsAdded(Arrays.ArrayList.Count == 3, Arrays.ArrayList.Count);
@@ -42,6 +43,10 @@ namespace WordSearcher.Controller
             }
             return null;
         }
+        /// <summary>
+        /// Adds an array of strings to the list of arrays.
+        /// </summary>
+        /// <param name="textArray">The array to add to list.</param>
         private static void AddTextArrayToList(Arrays textArray)
         {
             if(textArray.TextArray != null && textArray.Name !=null)
@@ -49,11 +54,15 @@ namespace WordSearcher.Controller
             Arrays.ArrayList.Add(textArray);
             }
         }
-        public static string RemoveAllButLetters(string text)
+        /// <summary>
+        /// Removes all chars but letters and white space in a string.
+        /// </summary>
+        /// <param name="text">The string to transform</param>
+        /// <returns>A string with only letters and white space.</returns>
+        public static string RemoveAllButLettersAndWhiteSpace(string text)
         {
-            var newString = "";
             var builder = new System.Text.StringBuilder();
-            builder.Append(newString);
+            builder.Append("");
             for (int i = 0; i < text.Length; i++)
             {
                 if (Char.IsLetter(text[i]) || Char.IsWhiteSpace(text[i]))

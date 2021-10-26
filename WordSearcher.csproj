@@ -16,6 +16,10 @@
     <None Remove="Controllers\TestTextFile1.txt" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.Extensions" Version="4.3.1" />
+  </ItemGroup>
+
  
   <ItemGroup>
     <Resource Include="Controllers\Readtest.txt">

@@ -1,6 +1,8 @@
 ﻿using WordSearcher.Controller;
 using WordSearcher.View;
 using System;
+using WordSearcher.Controllers;
+using WordSearcher.Model;
 
 namespace WordSearcher
 {

@@ -55,13 +55,11 @@ namespace WordSearcher.Controllers
         private static void AddWordToNodeList(Word word)
         {
             nc.SetRootNode(word);
+            nc.keepGoing = true;
         }
         /// <summary>
         /// Sends the user to DisplayNodes in NodeController.
         /// </summary>
-        internal static void PrintWordsInTree()
-        {
-            nc.DisplayNodes();
-        }
+        internal static void PrintWordsInTree() => nc.DisplayNodes();
     }
 }

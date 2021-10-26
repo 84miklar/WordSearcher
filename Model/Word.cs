@@ -13,8 +13,7 @@ namespace WordSearcher.Model
         public (string text, int amount) presenceInTextOne;
         public (string text, int amount) presenceInTextTwo;
         public (string text, int amount) presenceInTextThree;
-        private (string text, int amount)[] calculatedWords2 = new (string text, int amount)[3];
-        //private List<(string, int)> calculatedWords = new();
+        private (string text, int amount)[] calculatedWords = new (string text, int amount)[3];
         //Constructor
         public Word(string word)
         {
@@ -30,16 +29,13 @@ namespace WordSearcher.Model
             AddTuplesToList();
         }
         /// <summary>
-        /// Adds all tuples in Word class to a list.
+        /// Adds all tuples in Word class to an array.
         /// </summary>
         private void AddTuplesToList()
         {
-            calculatedWords2[0] = this.presenceInTextOne;
-            calculatedWords2[1] = this.presenceInTextTwo;
-            calculatedWords2[2] = this.presenceInTextThree;
-            //calculatedWords.Add(this.presenceInTextOne);
-            //calculatedWords.Add(this.presenceInTextTwo);
-            //calculatedWords.Add(this.presenceInTextThree);
+            calculatedWords[0] = this.presenceInTextOne;
+            calculatedWords[1] = this.presenceInTextTwo;
+            calculatedWords[2] = this.presenceInTextThree;
         }
         /// <summary>
         /// Calculates the presence of a word in an array of strings.
@@ -77,12 +73,12 @@ namespace WordSearcher.Model
         /// Puts together a string with info about words precense in a text, if filename is not null.
         /// </summary>
         /// <returns>A string with filename and amount of times a word is precense i a text.</returns>
+        /// Ordo = O(n + 3)
         public string DisplayPrescenceInText()
         {
             var sortedList = SortArrayOfCalculatedWords();
-            var returnString = "";
             var builder = new StringBuilder();
-            builder.Append(returnString);
+            builder.Append("");
             foreach (var item in sortedList)
             {
                 if (item.Item1 != null)
@@ -90,7 +86,7 @@ namespace WordSearcher.Model
                     builder.Append($"\t{item.Item1}: {item.Item2} times\n");
                 }
             }
-            if (returnString == builder.ToString())
+            if (builder.ToString()=="")
             {
                 return "\tNo presence in any text...\n";
             }
@@ -99,33 +95,26 @@ namespace WordSearcher.Model
         /// <summary>
         /// Sorts the amount of times a word is precense in different texts.
         /// </summary>
-        /// <returns>A sorted list of tuples.</returns>
-        //private List<(string, int)> SortListOfCalculatedWords()
-        //{
-        //    return calculatedWords.OrderBy(x => x.Item2).ToList();
-        //}
-
-        /// <summary>
-        /// Sorts the amount of times a word is precense in different texts.
-        /// </summary>
         /// <returns>A sorted array of tuples.</returns>
+        /// Ordo = O(n^2)
         private (string, int)[] SortArrayOfCalculatedWords()
         {
-            int max = calculatedWords2.Length - 1;
+            //The slow Bubble Sort i Ok here. The length of the array will never be longer than 3 at this moment.
+            var max = calculatedWords.Length - 1;
             for (int i = 0; i < max; i++)
             {
-                int nrLeft = max - i;
+                var nrLeft = max - i;
                 for (int j = 0; j < nrLeft; j++)
                 {
-                    if (calculatedWords2[j].amount > calculatedWords2[j + 1].amount)
+                    if (calculatedWords[j].amount > calculatedWords[j + 1].amount)
                     {
-                        var temp = calculatedWords2[j];
-                        calculatedWords2[j] = calculatedWords2[j + 1];
-                        calculatedWords2[j + 1] = temp;
+                        var temp = calculatedWords[j];
+                        calculatedWords[j] = calculatedWords[j + 1];
+                        calculatedWords[j + 1] = temp;
                     }
                 }
             }
-            return calculatedWords2;
+            return calculatedWords;
         }
 
         public override string ToString()
