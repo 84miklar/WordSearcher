@@ -15,7 +15,7 @@ namespace WordSearcher.View
         {
             while (keepGoing)
             {
-                
+                Console.Clear();
                 Console.WriteLine("Welcome");
                 Console.WriteLine("1. Search for a word\n" +
                     "2. Print all saved words\n" +

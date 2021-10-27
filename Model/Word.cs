@@ -7,6 +7,9 @@ using WordSearcher.Controllers;
 
 namespace WordSearcher.Model
 {
+    /// <summary>
+    /// Represents a searched Word
+    /// </summary>
     class Word
     {
         public string WordValue { get; set; }
@@ -86,7 +89,7 @@ namespace WordSearcher.Model
                     builder.Append($"\t{item.Item1}: {item.Item2} times\n");
                 }
             }
-            if (builder.ToString()=="")
+            if (builder.ToString()?.Length == 0)
             {
                 return "\tNo presence in any text...\n";
             }

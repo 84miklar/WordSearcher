@@ -5,6 +5,9 @@ using WordSearcher.View;
 
 namespace WordSearcher.Model
 {
+    /// <summary>
+    /// represents an array of strings.
+    /// </summary>
     public class Arrays
     {
         public string[] TextArray { get; set; }
@@ -16,12 +19,10 @@ namespace WordSearcher.Model
             TextArray = textArray;
             Name = name;
         }
-        
         /// <summary>
-        ///  Sorts ListArray and Prints input-Words from each Array          
+        ///  Sorts ListArray and Prints input-Words from each Array
         /// </summary>
         /// <param name="listOfArray"></param>
-        /// <returns></returns>
         //! Ordo (n^2)
         public static void FirstXWords(List<Arrays> listOfArray, int howManyWords)
         {

@@ -11,6 +11,7 @@ namespace WordSearcher
         static void Main()
         {
             FileHandler.GetDataFromTexFile();
+            ControlHelper.PressEnter();
             MenuView.StartMenu();
         }
     }

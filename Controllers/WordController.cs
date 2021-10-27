@@ -21,7 +21,7 @@ namespace WordSearcher.Controllers
         {
             WordView.SearchedWord();
             var searchedWord = Console.ReadLine();
-            if (searchedWord != null && searchedWord != "")
+            if (!string.IsNullOrEmpty(searchedWord))
             {
                 var newWord = new Word(searchedWord);
                 Console.WriteLine(newWord);

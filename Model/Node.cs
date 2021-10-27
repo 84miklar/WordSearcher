@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace WordSearcher.Model
 {
+    /// <summary>
+    /// Represents a Node in a node tree.
+    /// </summary>
     class Node
     {
         public Word Word { get; set; }

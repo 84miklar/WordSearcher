@@ -165,7 +165,7 @@ namespace WordSearcher.Controllers
         //1. Den har ett basfall där den kontrollerar efter null.
         //2. Den ändrar sitt tillstånd, byter nod till en längre ned i trädet.
         //3. Den kallar på sig själv.
-        //Detta hade gått att lösa med en loop också, men det hade antagligen tagit något längre tid vid stora mängder data. Vid lite data är det mycket liten skillnad. 
+        //Detta hade gått att lösa med en loop också, men det hade antagligen tagit något längre tid vid stora mängder data. Vid lite data är det mycket liten skillnad.
         //Ordo = O(log n)
         private void DisplayNodes(Node node) //Starts with the root node
         {
