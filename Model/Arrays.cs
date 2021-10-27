@@ -23,7 +23,9 @@ namespace WordSearcher.Model
         ///  Sorts ListArray and Prints input-Words from each Array
         /// </summary>
         /// <param name="listOfArray"></param>
-        //! Ordo (n^2)
+        /// <returns></returns>
+        //! Ordo    O(n^2 +4)
+        
         public static void FirstXWords(List<Arrays> listOfArray, int howManyWords)
         {
             if (listOfArray != null)
