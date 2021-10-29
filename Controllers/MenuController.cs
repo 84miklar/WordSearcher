@@ -21,14 +21,16 @@ namespace WordSearcher.Controller
                     WordController.PrintWordsInTree();
                     break;
                 case 3:
-                    
-                    Model.Arrays.FirstXWords(Model.Arrays.ArrayList, ArrayController.PrintChosenAmountOfWords());
+                    WordController.SearchWordInTree();
                     break;
                 case 4:
+                    Arrays.FirstXWords(Arrays.ArrayList, ArrayController.PrintChosenAmountOfWords());
+                    break;
+                case 5:
                     MenuView.keepGoing = false;
                     break;
                 default:
-                    if (input > 4)
+                    if (input > 5)
                         MenuView.DefaultView();
                     break;
             }

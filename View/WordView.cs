@@ -42,5 +42,11 @@ namespace WordSearcher.View
         {
             Console.WriteLine($"\"{word}\" is not added to the list.");
         }
+
+        internal static string SearchWordInTree()
+        {
+            Console.WriteLine("Type a word and see if it´s in the tree of saved words:");
+            return Console.ReadLine().Trim();
+        }
     }
 }

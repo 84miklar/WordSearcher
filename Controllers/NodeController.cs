@@ -12,6 +12,7 @@ namespace WordSearcher.Controllers
         private int letterValue;
         private int comparisonLetterValue;
         public bool keepGoing = true;
+        public bool wordFound;
 
         //Constructor
         public NodeController(Word word)
@@ -200,6 +201,49 @@ namespace WordSearcher.Controllers
             {
                 currentNode = RootNode;
             }
+        }
+        /// <summary>
+        /// Sees if a string has been saved to the node tree.
+        /// </summary>
+        /// <param name="wordToSearch">The string to search for</param>
+        public void SearchWordInTree(string wordToSearch)
+        {
+            wordFound = false;
+            if (RootNode == null)
+            {
+                NodeControllerView.DisplayNodesFail();
+            }
+            else
+            {
+                SearchWordInTree(wordToSearch, RootNode);
+            }
+            if (wordFound)
+            {
+                NodeControllerView.SearchWordInTree(wordToSearch);
+            }
+            else
+            {
+                NodeControllerView.SearchWordInTreeFail(wordToSearch); 
+            }
+        }
+        /// <summary>
+        /// Sees if a string has been saved to the node tree.
+        /// </summary>
+        /// <param name="wordToSearch">The string to search for</param>
+        /// <param name="node">The node to compare with</param>
+        private void SearchWordInTree(string wordToSearch, Node node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+            if (node.Word.WordValue == wordToSearch)
+            {
+                wordFound = true;
+                return;
+            }
+            SearchWordInTree(wordToSearch, node.LeftNode);
+            SearchWordInTree(wordToSearch, node.RightNode);
         }
     }
 }
